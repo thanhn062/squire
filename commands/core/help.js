@@ -1,5 +1,5 @@
 const { Client, GatewayIntentBits, SlashCommandBuilder, GuildChannel } = require('discord.js');
-const {jobEmbedBuilder} = require("embeds/jobEmbed.js")
+const jobEmbedBuilder = require('../../resources/embeds/jobEmbed.js');
 require('dotenv').config();
 
 module.exports = {
@@ -33,7 +33,7 @@ module.exports = {
                     { name: 'DevOps', value: 'devops'},
                     { name: 'Software Engineer', value: 'software engineer'},
                     { name: 'Machine Learning', value: 'machine learning'},
-                    { name: 'None Applicable', value: 'none'}
+                    { name: 'N/A', value: 'n/a'}
                 )
         )
         .addStringOption(option => 
@@ -48,7 +48,7 @@ module.exports = {
                     { name: 'Golang', value: 'golang' },
                     { name: 'CPP', value: 'cpp' },
                     { name: 'Rust', value: 'rust' },
-                    { name: 'None Applicable', value: 'none' }
+                    { name: 'N/A', value: 'n/a' }
                 )
         )
         .addStringOption(option => 
@@ -74,11 +74,9 @@ module.exports = {
 
         const channel = interaction.client.channels.cache.get('1090527860206342256');
 
-        let {jobEmbed, buttons} = jobEmbedBuilder(embedProps)
-
+        let jobPost = jobEmbedBuilder(embedProps)
         
-
-        channel.send({embeds: [jobEmbed], components: [buttons]})
+        channel.send({embeds: [jobPost.embed], components: [jobPost.buttons]})
 		await interaction.reply({ content: `Your request has been sent to the guardians!`, ephemeral: true});
     }
 }
