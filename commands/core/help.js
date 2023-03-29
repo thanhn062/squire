@@ -58,10 +58,10 @@ module.exports = {
         )
         .addStringOption(option => 
             option.setName('description')
-                .setDescription('Describe your roadblock in detail and what have you tried')
+                .setDescription('Describe your roadblock in detail and what you have tried')
                 .setRequired(true)
         ),
-        
+
     async execute(interaction) {
         let embedProps = {
             season: interaction.options.getString('season'),
