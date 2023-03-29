@@ -11,11 +11,11 @@ module.exports = {
                 .setDescription('The season that you\'re on')
                 .setRequired(true)
                 .addChoices(
-                    { name: 'Onboarding', value: 'onboarding'},
-                    { name: 'Preseason', value: 'preseason'},
-                    { name: 'Season 01', value: 'season01'},
-                    { name: 'Season 02', value: 'season02'},
-                    { name: 'Season 03', value: 'season03'}
+                    { name: 'Onboarding', value: 'Onboarding'},
+                    { name: 'Preseason', value: 'Preseason'},
+                    { name: 'Season 01', value: 'Season 01'},
+                    { name: 'Season 02', value: 'Season 02'},
+                    { name: 'Season 03', value: 'Season 03'}
                 )
         )
         .addStringOption(option => 
@@ -23,17 +23,17 @@ module.exports = {
                 .setDescription('The subject of the season')
                 .setRequired(true)
                 .addChoices(
-                    { name: 'Arc 01', value: 'arc01'},
-                    { name: 'Arc 02', value: 'arc02'},
-                    { name: 'Fullstack', value: 'fullstack'},
-                    { name: 'Frontend', value: 'frontend'},
-                    { name: 'Backend', value: 'backend'},
-                    { name: 'Cloud Engineer', value: 'cloud'},
-                    { name: 'Data Science', value: 'data'},
-                    { name: 'DevOps', value: 'devops'},
-                    { name: 'Software Engineer', value: 'software engineer'},
-                    { name: 'Machine Learning', value: 'machine learning'},
-                    { name: 'N/A', value: 'n/a'}
+                    { name: 'Arc 01', value: 'Arc 01'},
+                    { name: 'Arc 02', value: 'Arc 02'},
+                    { name: 'Fullstack', value: 'Fullstack'},
+                    { name: 'Frontend', value: 'Frontend'},
+                    { name: 'Backend', value: 'Backend'},
+                    { name: 'Cloud Engineer', value: 'Cloud'},
+                    { name: 'Data Science', value: 'Data'},
+                    { name: 'DevOps', value: 'DevOps'},
+                    { name: 'Software Engineer', value: 'Software Engineer'},
+                    { name: 'Machine Learning', value: 'Machine Learning'},
+                    { name: 'N/A', value: 'N/A'}
                 )
         )
         .addStringOption(option => 
@@ -41,19 +41,19 @@ module.exports = {
                 .setDescription('The language of the season')
                 .setRequired(true)
                 .addChoices(
-                    { name: 'Javascript', value: 'javascript' },
-                    { name: 'Python', value: 'python' },
-                    { name: 'C', value: 'c' },
-                    { name: 'Java', value: 'java' },
-                    { name: 'Golang', value: 'golang' },
-                    { name: 'CPP', value: 'cpp' },
-                    { name: 'Rust', value: 'rust' },
-                    { name: 'N/A', value: 'n/a' }
+                    { name: 'Javascript', value: 'Javascript' },
+                    { name: 'Python', value: 'Python' },
+                    { name: 'C', value: 'C' },
+                    { name: 'Java', value: 'Java' },
+                    { name: 'Golang', value: 'Golang' },
+                    { name: 'CPP', value: 'CPP' },
+                    { name: 'Rust', value: 'Rust' },
+                    { name: 'N/A', value: 'N/A' }
                 )
         )
         .addStringOption(option => 
             option.setName('project')
-                .setDescription('Project\'s name (e.g quest 01, my_mastermind, ...')
+                .setDescription('Project\'s name (e.g quest 01, my_mastermind, ...)')
                 .setRequired(true)
         )
         .addStringOption(option => 
