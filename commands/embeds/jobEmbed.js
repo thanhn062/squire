@@ -17,7 +17,6 @@ export const jobEmbedBuilder = (props) => {
         { name: 'Project', value: project, inline: true },
         { name: 'Description', value: description},
 	)
-	.addFields({ name: 'Inline field title', value: 'Some value here', inline: true })
 	.setTimestamp()
 	.setFooter({ text: 'Generated At: '});
 
