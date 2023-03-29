@@ -4,15 +4,13 @@ const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('
 function jobEmbedBuilder(props) {
     let {userID, season, subject, language, project, description } = props
 
-    
-
     let embed = new EmbedBuilder()
     .setColor(0x009DFF)
     .setAuthor({name: "Help Request"})
 	.setTitle(`Project: ${project}`)
 	.setDescription(`${description}`)
     .addFields(
-        { name: ' ', value: `Student: <@${userID}>`, inline: true },
+        { name: 'Student:', value: `<@${userID}>`, inline: true },
 	)
 	.setTimestamp()
 	.setFooter({ text: `${season} • ${subject} • ${language}`});
@@ -23,7 +21,7 @@ function jobEmbedBuilder(props) {
                 .setCustomId('primary')
                 .setLabel('Claim')
                 .setStyle(ButtonStyle.Success)
-                .setEmoji('✅'),
+                .setEmoji('✔️'),
             new ButtonBuilder()
                 .setCustomId('danger')
                 .setLabel('Deny')
