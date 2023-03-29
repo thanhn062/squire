@@ -1,4 +1,5 @@
 const { Client, GatewayIntentBits, SlashCommandBuilder, GuildChannel } = require('discord.js');
+const {jobEmbedBuilder} = require("embeds/jobEmbed.js")
 require('dotenv').config();
 
 module.exports = {
@@ -51,27 +52,32 @@ module.exports = {
                 )
         )
         .addStringOption(option => 
-            option.setName('other')
+            option.setName('project')
                 .setDescription('Project\'s name (e.g quest 01, my_mastermind, ...')
                 .setRequired(true)
         )
         .addStringOption(option => 
             option.setName('description')
-                .setDescription('Describe your roadblock in details and what have you tried')
+                .setDescription('Describe your roadblock in detail and what have you tried')
                 .setRequired(true)
         ),
     async execute(interaction) {
-        const season = interaction.options.getString('season');
-        const subject = interaction.options.getString('subject');
-        const language = interaction.options.getString('language');
-        const other = interaction.options.getString('other');
-        const description = interaction.options.getString('description');
+        let embedProps = {
+            season: interaction.options.getString('season'),
+            subject: interaction.options.getString('subject'),
+            language: interaction.options.getString('language'),
+            project: interaction.options.getString('project'),
+            description: interaction.options.getString('description'),
+            userID: interaction.user.id,
+
+        }
         const channel = interaction.client.channels.cache.get('1090527860206342256');
-        const userID = interaction.user.id;
 
-        // channel.send(`From: <@${userID}>\n${season}`);
+        let jobEmbed = jobEmbedBuilder(embedProps)
 
-        channel.send(`From: <@${userID}>\n${season}\n${subject}\n${language}\n${other}\nproblem: ${description}`);
+        
+
+        channel.send({embeds: [jobEmbed]})
 		await interaction.reply({ content: `Your request has been sent to the guardians!`, ephemeral: true});
     }
 }
