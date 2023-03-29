@@ -1,4 +1,4 @@
-const { EmbedBuilder } = require('discord.js');
+const { EmbedBuilder, ActionRowBuilder, ButtonBuilder } = require('discord.js');
 
 // channel.send(`From: <@${userID}>\n${season}\n${subject}\n${language}\n${other}\nproblem: ${description}`);
 export const jobEmbedBuilder = (props) => {
@@ -21,8 +21,16 @@ export const jobEmbedBuilder = (props) => {
 	.setTimestamp()
 	.setFooter({ text: 'Generated At: '});
 
+    let buttons = new ActionRowBuilder()
+        .addComponents(
+            new ButtonBuilder()
+                .setCustomId('primary')
+                .setLabel('Claim')
+                .setStyle(ButtonStyle.Primary),
+        )
 
-    return embed
+
+    return {embed : embed, buttons: buttons}
 
 
 }

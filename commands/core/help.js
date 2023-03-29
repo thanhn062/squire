@@ -61,6 +61,7 @@ module.exports = {
                 .setDescription('Describe your roadblock in detail and what have you tried')
                 .setRequired(true)
         ),
+        
     async execute(interaction) {
         let embedProps = {
             season: interaction.options.getString('season'),
@@ -69,15 +70,15 @@ module.exports = {
             project: interaction.options.getString('project'),
             description: interaction.options.getString('description'),
             userID: interaction.user.id,
-
         }
+
         const channel = interaction.client.channels.cache.get('1090527860206342256');
 
-        let jobEmbed = jobEmbedBuilder(embedProps)
+        let {jobEmbed, buttons} = jobEmbedBuilder(embedProps)
 
         
 
-        channel.send({embeds: [jobEmbed]})
+        channel.send({embeds: [jobEmbed], components: [buttons]})
 		await interaction.reply({ content: `Your request has been sent to the guardians!`, ephemeral: true});
     }
 }
