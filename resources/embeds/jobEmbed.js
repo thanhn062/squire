@@ -18,12 +18,12 @@ function jobEmbedBuilder(props) {
     let buttons = new ActionRowBuilder()
         .addComponents(
             new ButtonBuilder()
-                .setCustomId('primary')
+                .setCustomId('button-claim')
                 .setLabel('Claim')
                 .setStyle(ButtonStyle.Success)
                 .setEmoji('✔️'),
             new ButtonBuilder()
-                .setCustomId('danger')
+                .setCustomId('button-deny')
                 .setLabel('Deny')
                 .setStyle(ButtonStyle.Danger)
                 .setEmoji('✖️')
