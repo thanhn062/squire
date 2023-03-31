@@ -28,8 +28,7 @@ for (const folder of commandFolders) {
 	}
 }
 
-client.on("interactionCreate", async interaction => {
-	
+client.on(Events.InteractionCreate, async interaction => {
 	if(!interaction.isButton()) return
 
 	if(interaction.customId == "button-claim"){

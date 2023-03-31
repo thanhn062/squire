@@ -1,4 +1,4 @@
-
+const {ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js')
 
 const handleClaimButton = async (interaction) => {
 
@@ -26,7 +26,22 @@ const handleClaimButton = async (interaction) => {
         const dmChannel2 = await user2.createDM();
         dmChannel2.send({ content: messageContent });
         await interaction.reply({content: "Thanks for claiming this ticket! Please check your DM's for further instruction!", ephemeral: true})
-        interaction.message.edit({content: `\`Job claimed by: \`` + `<@${guardian_discord_id}>` , components: []})
+
+
+
+        // let inProgressButton = ButtonBuilder({name: "inProgress"})
+
+        let inProgressButton = new ActionRowBuilder()
+        .addComponents(
+            new ButtonBuilder()
+                .setCustomId('button-inprogress')
+                .setLabel('In Progress...')
+                .setStyle(ButtonStyle.Secondary)
+                .setEmoji('⌛')
+                .setDisabled(true)
+        )
+
+        interaction.message.edit({content: `\`Job claimed by: \`` + `<@${guardian_discord_id}>` , components: [inProgressButton]})
     }
 }
 

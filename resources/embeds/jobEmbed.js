@@ -2,8 +2,11 @@ const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('
 
 // channel.send(`From: <@${userID}>\n${season}\n${subject}\n${language}\n${other}\nproblem: ${description}`);
 function jobEmbedBuilder(props) {
-    let {userID, season, subject, language, project, description } = props
-
+    let {userID, season, subject, language, project, description, attachment } = props
+    //console.log("=====================")
+   // console.log(JSON.stringify(attachment))
+    let defaultPic = "https://cdn.discordapp.com/attachments/997625130769469481/1091258869071740948/fppsmalllustrewall_textureproduct750x1000.jpg"
+    let url = (attachment == null) ? defaultPic : attachment.url
     let embed = new EmbedBuilder()
     .setColor(0x5981b3)
     .setAuthor({name: "Help Request"})
@@ -12,6 +15,7 @@ function jobEmbedBuilder(props) {
     .addFields(
         { name: 'Student:', value: `<@${userID}>`, inline: true },
 	)
+    .setThumbnail(url)
 	.setTimestamp()
 	.setFooter({ text: `${season} • ${subject} • ${language}`});
 
