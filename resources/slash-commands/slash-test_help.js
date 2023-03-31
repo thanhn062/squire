@@ -1,8 +1,8 @@
 const { SlashCommandBuilder } = require('discord.js');
 
 
-const slashHelp = new SlashCommandBuilder()
-        .setName('help')
+const testSlashHelp = new SlashCommandBuilder()
+        .setName('testhelpconnor')
         .setDescription('request help from guardians!')
         .addStringOption(option => 
             option.setName('season')
@@ -60,4 +60,4 @@ const slashHelp = new SlashCommandBuilder()
                 .setRequired(true)
         )
 
-module.exports = slashHelp
+module.exports = testSlashHelp

@@ -5,7 +5,7 @@ function jobEmbedBuilder(props) {
     let {userID, season, subject, language, project, description } = props
 
     let embed = new EmbedBuilder()
-    .setColor(0x009DFF)
+    .setColor(0x5981b3)
     .setAuthor({name: "Help Request"})
 	.setTitle(`Project: ${project}`)
 	.setDescription(`${description}`)

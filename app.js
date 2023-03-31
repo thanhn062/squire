@@ -4,7 +4,7 @@ const { REST, Routes } = require('discord.js');
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
-
+const handleClaimButton = require("./interactions/handleClaimButton.js")
 // configuration
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
@@ -27,6 +27,15 @@ for (const folder of commandFolders) {
 		}
 	}
 }
+
+client.on("interactionCreate", async interaction => {
+	
+	if(!interaction.isButton()) return
+
+	if(interaction.customId == "button-claim"){
+		handleClaimButton(interaction)
+	}
+})
 
 client.on(Events.InteractionCreate, async interaction => {
 	if (!interaction.isChatInputCommand()) return;
