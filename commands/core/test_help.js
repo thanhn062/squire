@@ -1,8 +1,6 @@
 const jobEmbedBuilder = require('../../resources/embeds-msg/help-ticket.js');
 const testSlashHelp = require('../../resources/commands-form/test_help')
-
 require('dotenv').config();
-
 
 const execute = async (interaction) => {
     let embedProps = {
@@ -13,7 +11,7 @@ const execute = async (interaction) => {
         description: interaction.options.getString('description'),
         userID: "111622508104450048",
     }
-    const channel = interaction.client.channels.cache.get('1090527860206342256');
+    const channel = interaction.client.channels.cache.get(process.env.helpBoardChannelId);
     let jobPost = jobEmbedBuilder(embedProps)
     channel.send({embeds: [jobPost.embed], components: [jobPost.buttons]})
     await interaction.reply({ content: `Your request has been sent to the guardians!`, ephemeral: true});
