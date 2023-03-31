@@ -1,5 +1,5 @@
-const jobEmbedBuilder = require('../../resources/embeds/jobEmbed.js');
-const testSlashHelp = require('../../resources/slash-commands/slash-test_help')
+const jobEmbedBuilder = require('../../resources/embeds-msg/help-ticket.js');
+const testSlashHelp = require('../../resources/commands-form/test_help')
 
 require('dotenv').config();
 

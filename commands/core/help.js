@@ -1,6 +1,6 @@
 //const { Client, GatewayIntentBits, SlashCommandBuilder, GuildChannel } = require('discord.js');
-const jobEmbedBuilder = require('../../resources/embeds/jobEmbed.js');
-const slashHelp = require('../../resources/slash-commands/slash-help')
+const jobEmbedBuilder = require('../../resources/embeds-msg/help-ticket.js');
+const slashHelp = require('../../resources/commands-form/help.js')
 
 const execute = async (interaction) => {
     let embedProps = {
