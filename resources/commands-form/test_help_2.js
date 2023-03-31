@@ -2,8 +2,8 @@ const { SlashCommandBuilder } = require('discord.js');
 
 
 const testSlashHelp = new SlashCommandBuilder()
-        .setName('testhelpconnor')
-        .setDescription('request help from guardians! - (sent by Thanh)')
+        .setName('testhelpthanh')
+        .setDescription('request help from guardians! - (sent by Connor)')
         .addStringOption(option => 
             option.setName('season')
                 .setDescription('The season that you\'re on')
