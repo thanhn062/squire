@@ -1,5 +1,5 @@
 // dependencies
-require('dotenv').config(); //initialize dotenv
+require('dotenv').config();
 const { REST, Routes } = require('discord.js');
 const fs = require('node:fs');
 const path = require('node:path');
@@ -12,7 +12,7 @@ client.commands = new Collection();
 const foldersPath = path.join(__dirname, 'commands');
 const commandFolders = fs.readdirSync(foldersPath);
 
-// dynamic command files
+// dynamically load command files
 for (const folder of commandFolders) {
 	const commandsPath = path.join(foldersPath, folder);
 	const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
@@ -28,6 +28,7 @@ for (const folder of commandFolders) {
 	}
 }
 
+// button listener
 client.on(Events.InteractionCreate, async interaction => {
 	if(!interaction.isButton()) return
 
@@ -36,6 +37,7 @@ client.on(Events.InteractionCreate, async interaction => {
 	}
 })
 
+// slash command listener
 client.on(Events.InteractionCreate, async interaction => {
 	if (!interaction.isChatInputCommand()) return;
 

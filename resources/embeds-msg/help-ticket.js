@@ -1,6 +1,5 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 
-// channel.send(`From: <@${userID}>\n${season}\n${subject}\n${language}\n${other}\nproblem: ${description}`);
 function jobEmbedBuilder(props) {
     let {userID, season, subject, language, project, description, attachment } = props
 
@@ -33,8 +32,6 @@ function jobEmbedBuilder(props) {
         )
 
     return {embed: embed, buttons: buttons};
-
-
 }
 
 module.exports = jobEmbedBuilder

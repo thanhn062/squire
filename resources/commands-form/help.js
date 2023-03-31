@@ -1,6 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
 
-
 const slashHelp = new SlashCommandBuilder()
         .setName('help')
         .setDescription('request help from guardians!')

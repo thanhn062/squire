@@ -27,10 +27,6 @@ const handleClaimButton = async (interaction) => {
         dmChannel2.send({ content: messageContent });
         await interaction.reply({content: "Thanks for claiming this ticket! Please check your DM's for further instruction!", ephemeral: true})
 
-
-
-        // let inProgressButton = ButtonBuilder({name: "inProgress"})
-
         let inProgressButton = new ActionRowBuilder()
         .addComponents(
             new ButtonBuilder()
