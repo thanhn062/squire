@@ -1,8 +1,8 @@
 const { SlashCommandBuilder } = require('discord.js');
 
 
-const slashHelp = new SlashCommandBuilder()
-        .setName('help')
+const testSlashHelp = new SlashCommandBuilder()
+        .setName('testhelpconnor')
         .setDescription('request help from guardians!')
         .addStringOption(option => 
             option.setName('season')
@@ -59,9 +59,5 @@ const slashHelp = new SlashCommandBuilder()
                 .setDescription('Describe your roadblock in detail and what you have tried')
                 .setRequired(true)
         )
-        .addAttachmentOption(option => 
-            option.setName('image')
-                .setDescription("A picture of your code (optional)")
-        )
 
-module.exports = slashHelp
+module.exports = testSlashHelp

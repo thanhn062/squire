@@ -1,6 +1,8 @@
-//const { Client, GatewayIntentBits, SlashCommandBuilder, GuildChannel } = require('discord.js');
 const jobEmbedBuilder = require('../../resources/embeds/jobEmbed.js');
-const slashHelp = require('../../resources/slash-commands/slash-help')
+const testSlashHelp = require('../../resources/slash-commands/slash-test_help')
+
+require('dotenv').config();
+
 
 const execute = async (interaction) => {
     let embedProps = {
@@ -9,16 +11,13 @@ const execute = async (interaction) => {
         language: interaction.options.getString('language'),
         project: interaction.options.getString('project'),
         description: interaction.options.getString('description'),
-        attachment: interaction.options.getAttachment('image'),
-        userID: interaction.user.id,
+        userID: "111622508104450048",
     }
- 
     const channel = interaction.client.channels.cache.get('1090527860206342256');
     let jobPost = jobEmbedBuilder(embedProps)
     channel.send({embeds: [jobPost.embed], components: [jobPost.buttons]})
     await interaction.reply({ content: `Your request has been sent to the guardians!`, ephemeral: true});
+
 }
 
-
-
-module.exports = {data: slashHelp, execute: execute }
+module.exports = {data: testSlashHelp, execute: execute}
