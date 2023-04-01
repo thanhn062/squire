@@ -1,5 +1,7 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
-
+/*
+ * The embeds content & components that will be post to the help-board
+*/
 function ticketEmbedBuilder(props) {
     let {userID, season, subject, language, project, description, attachment } = props
 

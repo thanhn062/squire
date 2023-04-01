@@ -1,22 +1,24 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
-
+/*
+ * The new embeds content & components that will be update to the help ticket when guardian click claim
+*/
 function claimedTicketEmbedBuilder(props) {
-    let {userID, season, subject, language, project, description, attachment, guardianID } = props
+    let { title, timestamp, footer, userID, description, attachment, guardianID } = props
 
     let defaultPic = "https://cdn.discordapp.com/attachments/997625130769469481/1091258869071740948/fppsmalllustrewall_textureproduct750x1000.jpg"
     let url = (attachment == null) ? defaultPic : attachment.url
     let embed = new EmbedBuilder()
-    .setColor(0x5981b3)
+    .setColor(0xFFFF00)
     .setAuthor({name: "Help Request"})
-	.setTitle(`Project: ${project}`)
+	.setTitle(`${title}`)
 	.setDescription(`${description}`)
     .addFields(
-        { name: 'Student:', value: `<@${userID}>`, inline: true },
-        {name: 'Claimed By:', value: `<@${guardianID}`, inline: true }
+        { name: 'Student:', value: `${userID}`, inline: true },
+        {name: 'Claimed By:', value: `<@${guardianID}>`, inline: true }
 	)
     .setThumbnail(url)
-	.setTimestamp()
-	.setFooter({ text: `${season} • ${subject} • ${language}`});
+	.setTimestamp(timestamp)
+	.setFooter({ text: `${footer}`});
 
     let buttons = new ActionRowBuilder()
     .addComponents(
