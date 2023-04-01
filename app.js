@@ -33,7 +33,7 @@ for (const folder of commandFolders) {
 client.on(Events.InteractionCreate, async interaction => {
 	if(!interaction.isButton()) return
 
-	if(interaction.customId == "button-claim"){
+	if(interaction.customId.startsWith("button-claim")){
 		handleClaimButton(interaction)
 	}
 	else if(interaction.customId == "button-deny"){
