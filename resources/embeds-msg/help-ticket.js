@@ -1,6 +1,6 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 
-function jobEmbedBuilder(props) {
+function ticketEmbedBuilder(props) {
     let {userID, season, subject, language, project, description, attachment } = props
 
     let defaultPic = "https://cdn.discordapp.com/attachments/997625130769469481/1091258869071740948/fppsmalllustrewall_textureproduct750x1000.jpg"
@@ -34,4 +34,4 @@ function jobEmbedBuilder(props) {
     return {embed: embed, buttons: buttons};
 }
 
-module.exports = jobEmbedBuilder
+module.exports = ticketEmbedBuilder
