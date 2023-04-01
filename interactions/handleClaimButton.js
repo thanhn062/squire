@@ -53,7 +53,7 @@ const handleClaimButton = async (interaction) => {
                 .setDisabled(true)
         )
 
-        interaction.message.edit({content: `\`Job claimed by: \`` + `<@${guardian_discord_id}>` , components: [inProgressButton]})
+        interaction.message.edit({content: `> Job claimed by: <@${guardian_discord_id}>` , components: [inProgressButton]})
     }
 }
 
