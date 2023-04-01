@@ -1,5 +1,6 @@
 const {ActionRowBuilder, ButtonBuilder, ButtonStyle, Attachment } = require('discord.js')
 const dmEmbedBuilder = require('../resources/embeds-msg/help-ticket-DM.js');
+const claimedTicketEmbedBuilder = require('../resources/embeds-msg/help-ticket-claimed.js')
 
 const handleClaimButton = async (interaction) => {
 
@@ -43,17 +44,9 @@ const handleClaimButton = async (interaction) => {
         await interaction.update({})
         // await interaction.reply({content: "Thanks for claiming this ticket! Please check your DM's for further instruction!", ephemeral: true})
 
-        let inProgressButton = new ActionRowBuilder()
-        .addComponents(
-            new ButtonBuilder()
-                .setCustomId('button-inprogress')
-                .setLabel('In Progress...')
-                .setStyle(ButtonStyle.Secondary)
-                .setEmoji('⌛')
-                .setDisabled(true)
-        )
+        const claimedEmbed = claimedTicketEmbedBuilder({...embedProps, guardianID: guardian_discord_id})
 
-        interaction.message.edit({content: `> Job claimed by: <@${guardian_discord_id}>` , components: [inProgressButton]})
+        interaction.message.edit({embed: claimedEmbed.embed, components: claimedEmbed.buttons})
     }
 }
 
