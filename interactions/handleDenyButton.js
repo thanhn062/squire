@@ -33,8 +33,13 @@ const handleDenyButton = async (interaction) => {
         // close the modal (by fulfilling promise with empty update)
 		interaction.update({});
         // delete the message
-        const messageId = interaction.message.id;
-        await interaction.channel.messages.delete(messageId);
+        try {
+            const messageId = await interaction.message.id;
+            const message = await interaction.channel.messages.fetch(messageId);
+            await message.delete();
+        } catch (error) {
+            console.error(`Failed to delete message: ${error}`);
+        }
         // DM Student and give them reason for denial
         const member = await interaction.guild.members.fetch(student_discord_id);
         // const member = await interaction.guild.members.fetch('111622508104450048');
@@ -42,7 +47,6 @@ const handleDenyButton = async (interaction) => {
         const dmChannel = await user.createDM();
         const messageContent = '```fix\nYour help request was denied.```__**Reason:**__\n> ' + reason;
         dmChannel.send({ content: messageContent });
-
     })
     .catch(console.error);
 }
