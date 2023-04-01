@@ -33,7 +33,7 @@ const handleClaimButton = async (interaction) => {
         const member = await interaction.guild.members.fetch(guardian_discord_id);
         const user = await member.user.fetch();
         const dmChannel = await user.createDM();
-        dmChannel.send({content: '```Thank you for helping out our student!\nPlease reach out to them via DM, and then come back here to update the status of the ticket once the student has been helped.```',embeds: [guardian_ticket.embed], components: [guardian_ticket.buttons]});
+        dmChannel.send({content: '```Thank you for helping out our student!\nPlease reach out to them via DM, then come back here to update the status of the ticket once the student has been helped.```',embeds: [guardian_ticket.embed], components: [guardian_ticket.buttons]});
 
         // DM Student
         const member2 = await interaction.guild.members.fetch(student_discord_id);
