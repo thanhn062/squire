@@ -39,7 +39,7 @@ const handleClaimButton = async (interaction) => {
         const member2 = await interaction.guild.members.fetch(student_discord_id);
         const user2 = await member2.user.fetch();
         const dmChannel2 = await user2.createDM();
-        dmChannel2.send({ content: `> __**Guardian:**__ <@${guardian_discord_id}>\n\`\`\`Has claimed your help request, and will be reaching out to you shortly.\nMake sure to check your DMs and Message Requests!\`\`\``});
+        dmChannel2.send({ content: `> __**Guardian:**__ <@${guardian_discord_id}>\n\`\`\`Has claimed your help request and will be reaching out to you shortly.\nMake sure to check your DMs and Message Requests!\`\`\``});
         await interaction.update({})
         // await interaction.reply({content: "Thanks for claiming this ticket! Please check your DM's for further instruction!", ephemeral: true})
 
