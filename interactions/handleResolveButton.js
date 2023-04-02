@@ -53,16 +53,27 @@ const resolveModalSubmit = async interaction => {
         resolvedTicket["problem"] = interaction.fields.getTextInputValue("problemInput")
         resolvedTicket["solution"] = interaction.fields.getTextInputValue("solutionInput")
 
+        // delete ticket on help board
         channel.messages.fetch(messageID).then(message => message.delete()).catch(console.error)
 
+        // update ticket in guardian's DM
         interaction.update({components: [], content: "\`Ticket resolved! Thanks for your help.\`"})
 
+        // get resolved board channel by channel Id
         const resolvedBoard = interaction.client.channels.cache.get(process.env.resolvedTicketsChannelId)
+        
+        // parse ticket's footer and convert to forum tags
         const forumTags = embed.footer.text.split(" • ").map(tag => tags[tag])
+        
+        // create the thread
+        const thread = await resolvedBoard.threads.create({
+            name: `${embed.data.title}`, 
+            message: {embeds: [embed]}, 
+            appliedTags: forumTags
+        })
 
-        resolvedBoard.threads.create({name: `${embed.data.title}`, message: {embeds: [embed]}, appliedTags: forumTags})
-        const thread = await resolvedBoard.threads.cache.find(x => x.name == `${embed.data.title}`)
-        thread.send(`Problem Encountered: ${resolvedTicket.problem} \n\n Solution: ${resolvedTicket.solution}`)
+        // send summary of problem and solution to the thread as comment
+        thread.send(`> Problem Encountered\n\`\`\`${resolvedTicket.problem}\`\`\`\n> Solution\n\`\`\`${resolvedTicket.solution}\`\`\``)
     })
     .catch(console.error)
 }
