@@ -34,19 +34,20 @@ const handleClaimButton = async (interaction) => {
         const member = await interaction.guild.members.fetch(guardian_discord_id);
         const user = await member.user.fetch();
         const dmChannel = await user.createDM();
-        dmChannel.send({content: '```Thank you for helping out our student!\nPlease reach out to them via DM, then come back here to update the status of the ticket once the student has been helped.```',embeds: [guardian_ticket.embed], components: [guardian_ticket.buttons]});
+
+        const claimedEmbed = claimedTicketEmbedBuilder({...embedProps, guardianID: guardian_discord_id})
+
+
+        dmChannel.send({content: '```Thank you for helping out our student!\nPlease reach out to them via DM, then come back here to update the status of the ticket once the student has been helped.```', embeds: [guardian_ticket.embed], components: [guardian_ticket.buttons]});
 
         // DM Student
         const member2 = await interaction.guild.members.fetch(student_discord_id);
         const user2 = await member2.user.fetch();
         const dmChannel2 = await user2.createDM();
-        dmChannel2.send({ content: `> __**Guardian:**__ <@${guardian_discord_id}>\n\`\`\`Has claimed your help request and will be reaching out to you shortly.\nMake sure to check your DMs and Message Requests!\`\`\``});
+        dmChannel2.send({ content: '__**Make sure to check your DMs and Message Requests!**__\nYour ticket has been claimed and the guardian will be reaching out to you shortly.', embeds: [claimedEmbed.embed]});
         await interaction.update({})
         // await interaction.reply({content: "Thanks for claiming this ticket! Please check your DM's for further instruction!", ephemeral: true})
-
-        const claimedEmbed = claimedTicketEmbedBuilder({...embedProps, guardianID: guardian_discord_id})
-
-        interaction.message.edit({embed: claimedEmbed.embed, components: claimedEmbed.buttons})
+        interaction.message.edit({embeds: [claimedEmbed.embed], components: [claimedEmbed.buttons]})
     }
 }
 
