@@ -7,6 +7,7 @@ const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
 const handleClaimButton = require("./interactions/handleClaimButton.js")
 const handleDenyButton = require("./interactions/handleDenyButton.js")
 const handleResolveButton = require("./interactions/handleResolveButton.js")
+const handleUnclaimButton = require("./interactions/handleUnclaimButton.js")
 // configuration
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
