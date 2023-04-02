@@ -52,6 +52,7 @@ client.on(Events.InteractionCreate, async interaction => {
 	}
 })
 
+
 // slash command listener
 client.on(Events.InteractionCreate, async interaction => {
 	if (!interaction.isChatInputCommand()) return;
