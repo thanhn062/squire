@@ -1,12 +1,14 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
-
+/*
+ * The embeds content & components that will be post to the help-board
+*/
 function ticketEmbedBuilder(props) {
     let {userID, season, subject, language, project, description, attachment } = props
 
     let defaultPic = "https://cdn.discordapp.com/attachments/997625130769469481/1091258869071740948/fppsmalllustrewall_textureproduct750x1000.jpg"
     let url = (attachment == null) ? defaultPic : attachment.url
     let embed = new EmbedBuilder()
-    .setColor(0x5981b3)
+    .setColor(0x2A9D8F)
     .setAuthor({name: "Help Request"})
 	.setTitle(`Project: ${project}`)
 	.setDescription(`${description}`)

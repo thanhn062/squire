@@ -6,6 +6,7 @@ const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
 const handleClaimButton = require("./interactions/handleClaimButton.js")
 const handleDenyButton = require("./interactions/handleDenyButton.js")
+const handleResolveButton = require("./interactions/handleResolveButton.js")
 // configuration
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
@@ -35,11 +36,22 @@ client.on(Events.InteractionCreate, async interaction => {
 
 	if(interaction.customId == "button-claim"){
 		handleClaimButton(interaction)
+		return
 	}
-	else if(interaction.customId == "button-deny"){
+	if(interaction.customId == "button-deny"){
 		handleDenyButton(interaction)
+		return
+	}
+	if(interaction.customId.startsWith("button-resolve")){
+		handleResolveButton(interaction)
+		return
+	}
+	if(interaction.customId.startsWith("button-unclaim")){
+		handleUnclaimButton(interaction)
+		return
 	}
 })
+
 
 // slash command listener
 client.on(Events.InteractionCreate, async interaction => {
