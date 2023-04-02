@@ -25,7 +25,7 @@ function dmEmbedBuilder(props) {
                 .setStyle(ButtonStyle.Success)
                 .setEmoji('✔️'),
             new ButtonBuilder()
-                .setCustomId('button-unclaim' + msgURL)
+                .setCustomId('button-unclaim-' + msgURL)
                 .setLabel('Unclaim')
                 .setStyle(ButtonStyle.Danger)
                 .setEmoji('✖️')
