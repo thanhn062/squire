@@ -60,7 +60,9 @@ const resolveModalSubmit = async interaction => {
         const resolvedBoard = interaction.client.channels.cache.get(process.env.resolvedTicketsChannelId)
         const forumTags = embed.footer.text.split(" • ").map(tag => tags[tag])
 
-        resolvedBoard.threads.create({name: `Resolved Ticket for ${embed.data.title}`, message: {content: `Problem Encountered: ${resolvedTicket.problem} \n Solution: ${resolvedTicket.solution}`, embeds: [embed]}, appliedTags: forumTags})
+        resolvedBoard.threads.create({name: `${embed.data.title}`, message: {embeds: [embed]}, appliedTags: forumTags})
+        const thread = await resolvedBoard.threads.cache.find(x => x.name == `${embed.data.title}`)
+        thread.send(`Problem Encountered: ${resolvedTicket.problem} \n\n Solution: ${resolvedTicket.solution}`)
     })
     .catch(console.error)
 }
