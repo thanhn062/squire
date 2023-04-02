@@ -4,28 +4,14 @@ const handleDenyButton = async (interaction) => {
 
     const student_discord_id = interaction.message.embeds[0].data.fields[0].value.replaceAll("<@","").replaceAll(">","")
 	const guardian_discord_id = interaction.user.id
+    
+    // build modal
+    const modal = denyModalBuilder()
 
-    // Create the modal
-    const modal = new ModalBuilder()
-        .setCustomId('deny-modal')
-        .setTitle('Reason For Denial');
-
-    // Add components to modal
-    // Create the text input components
-    const reasonInput = new TextInputBuilder()
-        .setCustomId('reasonInput')
-        .setLabel("What's the reason for denial?")
-        .setStyle(TextInputStyle.Paragraph);
-
-    const submitButton = new ActionRowBuilder().addComponents(reasonInput);
-
-    // Add inputs to the modal
-    modal.addComponents(submitButton);
-
-    // Show the modal to the user
+    // show modal to suer
     await interaction.showModal(modal);
 
-    // Collect a modal submit interaction
+    // Collect modal submit interaction
     const filter = (interaction) => interaction.customId === 'deny-modal';
     interaction.awaitModalSubmit({ filter, time: 15_000 })
     .then(async interaction => {
@@ -51,4 +37,24 @@ const handleDenyButton = async (interaction) => {
     .catch(console.error);
 }
 
+const denyModalBuilder = () => {
+    // Create the modal
+    const modal = new ModalBuilder()
+        .setCustomId('deny-modal')
+        .setTitle('Reason For Denial');
+
+    // Add components to modal
+    // Create the text input components
+    const reasonInput = new TextInputBuilder()
+        .setCustomId('reasonInput')
+        .setLabel("What's the reason for denial?")
+        .setStyle(TextInputStyle.Paragraph);
+
+    const submitButton = new ActionRowBuilder().addComponents(reasonInput);
+
+    // Add inputs to the modal
+    modal.addComponents(submitButton);
+
+    return modal
+}
 module.exports = handleDenyButton
