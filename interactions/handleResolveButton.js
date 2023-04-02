@@ -48,7 +48,7 @@ const resolveModalSubmit = async interaction => {
     const resolvedTicket = {}
     const filter = interaction => interaction.customId === "resolve-modal"
 
-    interaction.awaitModalSubmit({filter, time:15_000})
+    interaction.awaitModalSubmit({filter, time:150_000})
     .then(async interaction => {
         resolvedTicket["problem"] = interaction.fields.getTextInputValue("problemInput")
         resolvedTicket["solution"] = interaction.fields.getTextInputValue("solutionInput")
