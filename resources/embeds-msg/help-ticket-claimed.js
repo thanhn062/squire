@@ -5,8 +5,6 @@ const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('
 function claimedTicketEmbedBuilder(props) {
     let { title, timestamp, footer, userID, description, attachment, guardianID } = props
 
-    let defaultPic = "https://cdn.discordapp.com/attachments/997625130769469481/1091258869071740948/fppsmalllustrewall_textureproduct750x1000.jpg"
-    let url = (attachment == null) ? defaultPic : attachment.url
     let embed = new EmbedBuilder()
     .setColor(0xE9C46A)
     .setAuthor({name: "Help Request"})
@@ -16,7 +14,7 @@ function claimedTicketEmbedBuilder(props) {
         { name: 'Student:', value: `${userID}`, inline: true },
         {name: 'Claimed By:', value: `<@${guardianID}>`, inline: true }
 	)
-    .setThumbnail(url)
+    .setThumbnail(attachment)
 	.setTimestamp(timestamp)
 	.setFooter({ text: `${footer}`});
 
