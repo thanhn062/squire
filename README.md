@@ -1,20 +1,54 @@
 
 # Squire
 
-This is a Discord bot designed for communities that want to help pair students up with volunteer mentors ("Guardians") through a ticket based system, all encapsulated within the Discord app. It was built entirely using the Discord.js library.
+This is a Discord bot designed for communities that want to help pair students up with volunteer mentors ("Guardians") through a help board system, all encapsulated within the Discord app. It was built entirely using the Discord.js library.
 
-To run:
+#### Tech Stack
+- Node.js
+- Discord.js
+- Javascript
+---
+#### Installation
+    • Register the bot with discord with the right permission
+    • Create the necessary Discord channels and obtain the channel IDs
+    • Set the correct value for environment variables
+    • Run "node deploy-commands.js" to register the slash commands to Discord
+    • Run "node app.js" to start the bot
+###### Bot Discord Permission
+###### Environment Variables
+To run this project, you will need to add the following environment variables to your .env file
+|Variable Name|Description|
+|-|-|
+|CLIENT_TOKEN|The discord bot's CLIENT_TOKEN used to login|
+|clientId|The client_id of the registered bot|
+|guildId||
+|helpBoardChannelId|the channel ID where you want the help requests to go|
+|resolvedTicketsChannelId|the ID of the forum-channel where you want the resolved tickets to go. Must be a discord Forum channel.|
 
-    1. Register the bot with discord, create the necessary Discord channels (look in the environment variables section), and set the environment variables
-    2. Edit `commands-form/help.js` to set required inputs when a user tries to submit a help ticket
-    3. Create forum tags in your forum according to the inputs you set in `commands-form/help.js`
-    3. Edit `forum_tag_ids.js` with the ID's of the forum tags, the key should be the name of the tag, with the value being the tag's ID
-    2. Run `node deploy-commands.js` to register the slash commands with discord
-    3. Run `node app.js` to start the bot
+---
+#### Folder Structure
+|Folder/File|Purpose|
+|---|---|
+|commands/|This folder contains all of the logics for the slash commands|
+|interactions/|This folder contains all of the button's function|
+|resources/commands-form/|This folder contains all the forms for slash command builder|
+|resources/embeds-msg|This folder contains templates of the embed messages|
+|forum_tag_ids.js|This file contains all the tags name and tags id for the forum-channel|
+|deploy-commands.js|Register the slash command options to Discord|
+|app.js|Main file where the bot login, load all the commands, and event listeners|
 
-Help tickets can be submitted with `/help` in Discord, they are sent to the "help board" channel you created in step 1.
+#### Channels Note
+|Channel Name|Purpose|
+|-|-|
+|help-board|a private text-channel that acts as a mission board where all the help ticket get posted to|
+|resolved-tickets|a public forum-channel that serves as an archive for all of resolved tickets|
 
+
+
+Help tickets can be submitted by using the slash command `/help` in Discord, and then fill in all the required input fields and hit enter
 The bot can be run with as-is to see how student input works and how it corresponds to forum tags.
+
+---
 
 
 
@@ -51,22 +85,6 @@ The bot can be run with as-is to see how student input works and how it correspo
 - Create help tickets with `/help`, with customizable inputs
 - Guardians can respond to and claim tickets in a private help board
 - Once a ticket is resolved, an archive post is created with the details surrounding the encountered problem and solution
-
-
-## Environment Variables
-
-To run this project, you will need to add the following environment variables to your .env file
-
-`CLIENT_TOKEN` -> The discord bot's CLIENT_TOKEN used to login
-
-`clientId` -> The client_id of the registered bot
-
-`helpBoardChannelId` -> the channel ID where you want the help requests to go 
-
-`resolvedTicketsChannelId` -> the ID of the forum where you want the resolved tickets to go. Must be a discord Forum channel.
-
-
-
 
 ## Authors
 
