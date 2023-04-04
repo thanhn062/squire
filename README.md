@@ -21,7 +21,7 @@ To run this project, you will need to add the following environment variables to
 |-|-|
 |CLIENT_TOKEN|The discord bot's CLIENT_TOKEN used to login|
 |clientId|The client_id of the registered bot|
-|guildId||
+|guildId|The discord community id|
 |helpBoardChannelId|the channel ID where you want the help requests to go|
 |resolvedTicketsChannelId|the ID of the forum-channel where you want the resolved tickets to go. Must be a discord Forum channel.|
 
