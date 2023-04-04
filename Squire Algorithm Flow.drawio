@@ -1,11 +1,89 @@
-<mxfile host="app.diagrams.net" modified="2023-04-04T20:55:24.113Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36 Edg/111.0.1661.62" etag="XPcqDwhEYRH_rArJJFhI" version="21.1.4" type="github">
+<mxfile host="app.diagrams.net" modified="2023-04-04T22:10:39.680Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36 Edg/111.0.1661.62" etag="-1iMMEpa1pAl0UN1fFTT" version="21.1.4" type="github">
   <diagram id="pVgSUyKwjvjuSramGQ5r" name="Page-1">
-    <mxGraphModel dx="1386" dy="796" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1848" dy="1061" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="Qhk10J4_PxOj90e3UYip-1" value="Student needs help" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" vertex="1" parent="1">
-          <mxGeometry x="40" y="40" width="100" height="60" as="geometry" />
+        <mxCell id="rcRUlfAsobHKNs1U4Va--3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="rcRUlfAsobHKNs1U4Va--1" target="rcRUlfAsobHKNs1U4Va--2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rcRUlfAsobHKNs1U4Va--1" value="Student needs help" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="40" y="50" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rcRUlfAsobHKNs1U4Va--5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="rcRUlfAsobHKNs1U4Va--2" target="rcRUlfAsobHKNs1U4Va--4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rcRUlfAsobHKNs1U4Va--2" value="Goto Discord&lt;br&gt;&amp;nbsp;community&lt;br&gt;&amp;nbsp;and click on chat bar&lt;span data-lucid-content=&quot;{&amp;quot;t&amp;quot;:&amp;quot;Goto Discord community and click on chat bar&amp;quot;,&amp;quot;m&amp;quot;:[{&amp;quot;s&amp;quot;:0,&amp;quot;n&amp;quot;:&amp;quot;a&amp;quot;,&amp;quot;v&amp;quot;:&amp;quot;center&amp;quot;},{&amp;quot;s&amp;quot;:0,&amp;quot;n&amp;quot;:&amp;quot;c&amp;quot;,&amp;quot;v&amp;quot;:&amp;quot;3a414aff&amp;quot;,&amp;quot;e&amp;quot;:44}]}&quot; data-lucid-type=&quot;application/vnd.lucid.text&quot;&gt;&lt;/span&gt;&lt;span data-lucid-content=&quot;{&amp;quot;t&amp;quot;:&amp;quot;Goto Discord community and click on chat bar&amp;quot;,&amp;quot;m&amp;quot;:[{&amp;quot;s&amp;quot;:0,&amp;quot;n&amp;quot;:&amp;quot;a&amp;quot;,&amp;quot;v&amp;quot;:&amp;quot;center&amp;quot;},{&amp;quot;s&amp;quot;:0,&amp;quot;n&amp;quot;:&amp;quot;c&amp;quot;,&amp;quot;v&amp;quot;:&amp;quot;3a414aff&amp;quot;,&amp;quot;e&amp;quot;:44}]}&quot; data-lucid-type=&quot;application/vnd.lucid.text&quot;&gt;&lt;/span&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=trapezoid;perimeter=trapezoidPerimeter;whiteSpace=wrap;size=0.23;arcSize=10;flipV=1;labelPosition=center;align=center;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="160" y="40" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="rcRUlfAsobHKNs1U4Va--7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="rcRUlfAsobHKNs1U4Va--4" target="rcRUlfAsobHKNs1U4Va--6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rcRUlfAsobHKNs1U4Va--4" value="Student type &quot;/help&quot;" style="html=1;strokeWidth=2;shape=manualInput;whiteSpace=wrap;rounded=1;size=26;arcSize=11;shadow=0;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="360" y="40" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="rcRUlfAsobHKNs1U4Va--10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="rcRUlfAsobHKNs1U4Va--6" target="rcRUlfAsobHKNs1U4Va--9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rcRUlfAsobHKNs1U4Va--16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;strokeWidth=2;" edge="1" parent="1" source="rcRUlfAsobHKNs1U4Va--6" target="rcRUlfAsobHKNs1U4Va--8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rcRUlfAsobHKNs1U4Va--6" value="Help form appear&lt;br&gt;on chat bar" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="375" y="160" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="rcRUlfAsobHKNs1U4Va--8" value="Help form input fields (* = required)&lt;br&gt;----------------------------&lt;br&gt;*Season: dropdownmenu&lt;br&gt;*Subject: dropdownmenu&lt;br&gt;*Language: dropdownmenu&lt;br&gt;*Project: String&lt;br&gt;*Description: String&lt;br&gt;&amp;nbsp;Image: Attachment" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="150" width="50" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="rcRUlfAsobHKNs1U4Va--20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=none;endFill=0;" edge="1" parent="1" source="rcRUlfAsobHKNs1U4Va--9" target="rcRUlfAsobHKNs1U4Va--17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rcRUlfAsobHKNs1U4Va--23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="rcRUlfAsobHKNs1U4Va--9" target="rcRUlfAsobHKNs1U4Va--11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rcRUlfAsobHKNs1U4Va--9" value="Student select from&lt;br&gt;&lt;b&gt;&lt;u&gt;Season&lt;/u&gt;&lt;/b&gt;&lt;br&gt;&amp;nbsp;dropdownmenu" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=trapezoid;perimeter=trapezoidPerimeter;whiteSpace=wrap;size=0.23;arcSize=10;flipV=1;labelPosition=center;align=center;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="351" y="300" width="148" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rcRUlfAsobHKNs1U4Va--21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=none;endFill=0;" edge="1" parent="1" source="rcRUlfAsobHKNs1U4Va--11" target="rcRUlfAsobHKNs1U4Va--18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rcRUlfAsobHKNs1U4Va--24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="rcRUlfAsobHKNs1U4Va--11" target="rcRUlfAsobHKNs1U4Va--12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rcRUlfAsobHKNs1U4Va--11" value="Student select from&lt;br&gt;&lt;b&gt;&lt;u&gt;Subject&lt;/u&gt;&lt;/b&gt;&lt;br&gt;&amp;nbsp;dropdownmenu" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=trapezoid;perimeter=trapezoidPerimeter;whiteSpace=wrap;size=0.23;arcSize=10;flipV=1;labelPosition=center;align=center;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="351" y="465" width="148" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rcRUlfAsobHKNs1U4Va--22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=none;endFill=0;" edge="1" parent="1" source="rcRUlfAsobHKNs1U4Va--12" target="rcRUlfAsobHKNs1U4Va--19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rcRUlfAsobHKNs1U4Va--27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="rcRUlfAsobHKNs1U4Va--12" target="rcRUlfAsobHKNs1U4Va--25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rcRUlfAsobHKNs1U4Va--12" value="Student select from&lt;br&gt;&lt;b&gt;&lt;u&gt;Language&lt;/u&gt;&lt;/b&gt;&lt;br&gt;&amp;nbsp;dropdownmenu" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=trapezoid;perimeter=trapezoidPerimeter;whiteSpace=wrap;size=0.23;arcSize=10;flipV=1;labelPosition=center;align=center;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="351" y="650" width="148" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rcRUlfAsobHKNs1U4Va--17" value="Menu options:&lt;br&gt;- Onboarding&lt;br&gt;- Preseason&lt;br&gt;- Season 01&lt;br&gt;- Season 02&lt;br&gt;- Season 03" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="280" width="50" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="rcRUlfAsobHKNs1U4Va--18" value="Menu options:&lt;br&gt;- Arc 01&lt;br&gt;- Arc 02&lt;br&gt;- Fullstack&lt;br&gt;- Frontend&lt;br&gt;- Backend&lt;br&gt;- Cloud Engineer&lt;br&gt;- Data Science&lt;br&gt;- DevOps&lt;br&gt;- Software Engineer&lt;br&gt;- Machine Learning&lt;br&gt;- N/A" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="400" width="50" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="rcRUlfAsobHKNs1U4Va--19" value="Menu options:&lt;br&gt;- Javascript&lt;br&gt;- Python&lt;br&gt;- C&lt;br&gt;- Java&lt;br&gt;- Golang&lt;br&gt;- CPP&lt;br&gt;- Rust&lt;br&gt;- N/A" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="610" width="50" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="rcRUlfAsobHKNs1U4Va--28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="rcRUlfAsobHKNs1U4Va--25" target="rcRUlfAsobHKNs1U4Va--26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rcRUlfAsobHKNs1U4Va--25" value="Student enter project&#39;s title" style="html=1;strokeWidth=2;shape=manualInput;whiteSpace=wrap;rounded=1;size=26;arcSize=11;verticalAlign=bottom;horizontal=1;" vertex="1" parent="1">
+          <mxGeometry x="375" y="767" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rcRUlfAsobHKNs1U4Va--30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="rcRUlfAsobHKNs1U4Va--26" target="rcRUlfAsobHKNs1U4Va--29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rcRUlfAsobHKNs1U4Va--26" value="Student enter problem&#39;s description" style="html=1;strokeWidth=2;shape=manualInput;whiteSpace=wrap;rounded=1;size=26;arcSize=11;verticalAlign=bottom;horizontal=1;" vertex="1" parent="1">
+          <mxGeometry x="375" y="880" width="100" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="rcRUlfAsobHKNs1U4Va--29" value="Student hit Enter and submit&lt;br&gt;help form" style="html=1;strokeWidth=2;shape=manualInput;whiteSpace=wrap;rounded=1;size=26;arcSize=11;verticalAlign=bottom;horizontal=1;" vertex="1" parent="1">
+          <mxGeometry x="375" y="1000" width="100" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
