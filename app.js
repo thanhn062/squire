@@ -77,9 +77,43 @@ client.on(Events.InteractionCreate, async interaction => {
 	}
 });
 
+function deleteTicket() {
+	const channel = client.channels.cache.get(process.env.helpBoardChannelId);
+	if (!channel) return;
+
+	// Delete all help tickets older than 3 days
+	const day = 3;
+	const livespan = day * 24;
+
+	// scan the last 100 messages in help board
+	// assuming there will never be more than 100 tickets in the help board
+	channel.messages.fetch({ limit: 100 }).then(messages => {
+		messages.forEach(async message => {
+			// only check for message with embeds with timestamp
+			if (message.embeds[0] != null && message.embeds[0].data.timestamp != null) {
+				const isoString = await message.embeds[0].data.timestamp;
+				const msg_date = new Date(isoString);
+				const current_date = new Date();
+				const diffInMs = current_date - msg_date; // Difference in milliseconds
+				const diffInHrs = Math.round(diffInMs / 3600000); // Difference in hours
+				console.log(diffInHrs)
+				// delete help ticket more than 3 days old
+				if (diffInHrs >= livespan) {
+					message.delete()
+						.then(console.log(`Deleted message ${message.id}`))
+						.catch(console.error);
+				}
+			}
+		})
+	}).catch(console.error);
+}
+
 // Client login
 client.once(Events.ClientReady, c => {
 	console.log(`Ready! Logged in as ${c.user.tag}`);
+
+	// set ticket delete timer
+	setInterval(deleteTicket, 3600000);
 });
 
 client.login(process.env.CLIENT_TOKEN);
