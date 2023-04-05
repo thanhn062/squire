@@ -29,7 +29,8 @@ To run this project, you will need to add the following environment variables to
 ##### Student
 ![student flow dark](https://user-images.githubusercontent.com/12405800/229955215-e8d261d6-e61a-4a69-8c96-4f4fc40554d8.png)
 ##### Guardian
-![guardian flow dark](https://user-images.githubusercontent.com/12405800/229955842-9fd32932-6caf-4e0d-91e9-fa2c556a7a83.png)
+![guardian flow dark](https://user-images.githubusercontent.com/12405800/229996726-ee61b5fb-e680-45a4-a328-70f512a22a6d.png)
+
 
 ---
 #### Folder Structure
@@ -40,7 +41,6 @@ To run this project, you will need to add the following environment variables to
 |commands/|This folder contains all of the logics for the slash commands|
 |interactions/|This folder contains all of the button's function|
 |resources/commands-form/|This folder contains all the forms for slash command|
-|resources/embeds-msg/|This folder contains templates of the embed messages|
 |forum_tag_ids.js|This file contains all the tags name and tags id for the forum-channel|
 |deploy-commands.js|Register the slash command options to Discord|
 |app.js|Main file where the bot login, load all the commands, and event listeners|
