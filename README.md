@@ -14,8 +14,23 @@ This Discord bot is designed to facilitate the pairing process of students with 
     • Set the correct value for environment variables
     • Run "node deploy-commands.js" to register the slash commands to Discord
     • Run "node app.js" to start the bot
-###### Bot Discord Permission
-###### Environment Variables
+##### Bot Discord Permission
+###### Scope
+- bot
+- applications.commands
+###### General Permisson
+- Read Messages/View Channels
+###### Text Permission
+- Send Messages
+- Create Public Threads
+- Create Private Threads
+- Send Messages in Threads
+- Manage Messages
+- Manage Threads
+- Read Message History
+- Use Slash Command
+---
+##### Environment Variables
 To run this project, you will need to add the following environment variables to your .env file
 |Variable Name|Description|
 |-|-|
