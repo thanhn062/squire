@@ -44,7 +44,8 @@ To run this project, you will need to add the following environment variables to
 ##### Student
 ![student flow dark](https://user-images.githubusercontent.com/12405800/229955215-e8d261d6-e61a-4a69-8c96-4f4fc40554d8.png)
 ##### Guardian
-![guardian flow dark](https://user-images.githubusercontent.com/12405800/229996726-ee61b5fb-e680-45a4-a328-70f512a22a6d.png)
+![guardian flow dark](https://user-images.githubusercontent.com/12405800/230002998-5f2feaa2-012a-4c3c-85ea-7159ad98f3f9.png)
+
 
 
 ---
