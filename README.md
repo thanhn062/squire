@@ -29,7 +29,7 @@ To run this project, you will need to add the following environment variables to
 ##### Student
 ![student flow dark](https://user-images.githubusercontent.com/12405800/229955215-e8d261d6-e61a-4a69-8c96-4f4fc40554d8.png)
 ##### Guardian
-![guardian flow dark](https://user-images.githubusercontent.com/12405800/229955238-bfc38a1f-8682-4544-bd1f-be17e11f79a1.png)
+![guardian flow dark](https://user-images.githubusercontent.com/12405800/229955842-9fd32932-6caf-4e0d-91e9-fa2c556a7a83.png)
 
 ---
 #### Folder Structure
