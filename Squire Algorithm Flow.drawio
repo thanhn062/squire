@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-04-05T06:14:52.869Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36 Edg/111.0.1661.62" etag="zjU_5O6Y7mqKP87yBE1M" version="21.1.4" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-04-05T06:15:06.997Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36 Edg/111.0.1661.62" etag="6SMFMhVvDzps5XZl39oe" version="21.1.4" type="github" pages="2">
   <diagram id="pVgSUyKwjvjuSramGQ5r" name="Page-1">
     <mxGraphModel dx="2555" dy="796" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
       <root>
@@ -294,7 +294,7 @@
         <mxCell id="pFAdIeVjLNSK72_ivn70-25" value="Delete ticket on help board" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" parent="1" vertex="1">
           <mxGeometry x="-522.5" y="1480" width="100" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="pFAdIeVjLNSK72_ivn70-28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="pFAdIeVjLNSK72_ivn70-27" target="2ZcFgkVHSxC2JSc-GkNj-1" edge="1">
+        <mxCell id="GWK-oFQoW4952dWCNSbX-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="pFAdIeVjLNSK72_ivn70-27" target="2ZcFgkVHSxC2JSc-GkNj-1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="pFAdIeVjLNSK72_ivn70-27" value="Archive the ticket details into resolved-ticket forum channel" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" parent="1" vertex="1">
