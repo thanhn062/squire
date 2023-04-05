@@ -26,7 +26,8 @@ const handleClaimButton = async (interaction) => {
             userID: interaction.message.embeds[0].data.fields[0].value,
             description: interaction.message.embeds[0].data.description,
             attachment: interaction.message.embeds[0].data.thumbnail.url,
-            msgURL: interaction.message.id
+            msgURL: interaction.message.id,
+            guardianID: guardian_discord_id
         }
         // build the embeds
         let guardian_ticket = dmEmbedBuilder(embedProps)

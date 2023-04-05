@@ -3,7 +3,7 @@ const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('
  * The embeds content & components that will be send to the guardian via DM when guardian click claim
 */
 function dmEmbedBuilder(props) {
-    let {title, timestamp, footer, userID, description, attachment, msgURL } = props
+    let {title, timestamp, footer, userID, description, attachment, msgURL, guardianID } = props
 
     let embed = new EmbedBuilder()
     .setColor(0xE9C46A)
@@ -12,6 +12,8 @@ function dmEmbedBuilder(props) {
 	.setDescription(`${description}`)
     .addFields(
         { name: 'Student:', value: `${userID}`, inline: true },
+        { name: 'Claimed By:', value: `<@${guardianID}>`, inline: true }
+
 	)
     .setThumbnail(attachment)
 	.setTimestamp(timestamp)
