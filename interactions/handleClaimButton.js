@@ -1,6 +1,4 @@
-const {ActionRowBuilder, ButtonBuilder, ButtonStyle, Attachment } = require('discord.js')
-const dmEmbedBuilder = require('../resources/embeds-msg/help-ticket-DM.js');
-const claimedTicketEmbedBuilder = require('../resources/embeds-msg/help-ticket-claimed.js')
+const {ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } = require('discord.js')
 
 const handleClaimButton = async (interaction) => {
 
@@ -50,6 +48,69 @@ const handleClaimButton = async (interaction) => {
         // await interaction.reply({content: "Thanks for claiming this ticket! Please check your DM's for further instruction!", ephemeral: true})
         interaction.message.edit({embeds: [claimedEmbed.embed], components: [claimedEmbed.buttons]})
     }
+}
+
+function claimedTicketEmbedBuilder(props) {
+    let { title, timestamp, footer, userID, description, attachment, guardianID } = props
+
+    let embed = new EmbedBuilder()
+    .setColor(0xE9C46A)
+    .setAuthor({name: "Help Request"})
+	.setTitle(`${title}`)
+	.setDescription(`${description}`)
+    .addFields(
+        { name: 'Student:', value: `${userID}`, inline: true },
+        { name: 'Claimed By:', value: `<@${guardianID}>`, inline: true }
+	)
+    .setThumbnail(attachment)
+	.setTimestamp(timestamp)
+	.setFooter({ text: `${footer}`});
+
+    let buttons = new ActionRowBuilder()
+    .addComponents(
+        new ButtonBuilder()
+            .setCustomId('button-inprogress')
+            .setLabel('In Progress...')
+            .setStyle(ButtonStyle.Secondary)
+            .setEmoji('⌛')
+            .setDisabled(true)
+    )
+
+    return {embed: embed, buttons: buttons};
+}
+
+function dmEmbedBuilder(props) {
+    let {title, timestamp, footer, userID, description, attachment, msgURL, guardianID } = props
+
+    let embed = new EmbedBuilder()
+    .setColor(0xE9C46A)
+    .setAuthor({name: "Help Request"})
+	.setTitle(`${title}`)
+	.setDescription(`${description}`)
+    .addFields(
+        { name: 'Student:', value: `${userID}`, inline: true },
+        { name: 'Claimed By:', value: `<@${guardianID}>`, inline: true }
+
+	)
+    .setThumbnail(attachment)
+	.setTimestamp(timestamp)
+	.setFooter({ text: `${footer}`});
+
+    let buttons = new ActionRowBuilder()
+        .addComponents(
+            new ButtonBuilder()
+                .setCustomId('button-resolve-' + msgURL)
+                .setLabel('Resolve')
+                .setStyle(ButtonStyle.Success)
+                .setEmoji('✔️'),
+            new ButtonBuilder()
+                .setCustomId('button-unclaim-' + msgURL)
+                .setLabel('Unclaim')
+                .setStyle(ButtonStyle.Danger)
+                .setEmoji('✖️')
+        )
+
+    return {embed: embed, buttons: buttons};
 }
 
 module.exports = handleClaimButton
