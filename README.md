@@ -24,9 +24,17 @@ To run this project, you will need to add the following environment variables to
 |guildId|The discord community id|
 |helpBoardChannelId|The channel ID where you want the help requests to go|
 |resolvedTicketsChannelId|The ID of the forum-channel where you want the resolved tickets to go. <br/><b>*Must be a discord Forum channel</b>.|
+---
+### Flowchart
+##### Student
+![student flow dark](https://user-images.githubusercontent.com/12405800/229955215-e8d261d6-e61a-4a69-8c96-4f4fc40554d8.png)
+##### Guardian
+![guardian flow dark](https://user-images.githubusercontent.com/12405800/229955842-9fd32932-6caf-4e0d-91e9-fa2c556a7a83.png)
 
 ---
 #### Folder Structure
+
+
 |Folder/File|Purpose|
 |---|---|
 |commands/|This folder contains all of the logics for the slash commands|
