@@ -63,17 +63,21 @@ const resolveModalSubmit = async interaction => {
         const resolvedBoard = interaction.client.channels.cache.get(process.env.resolvedTicketsChannelId)
         
         // parse ticket's footer and convert to forum tags
-        const forumTags = embed.footer.text.split(" • ").map(tag => tags[tag])
+        const forumTags = embed.footer.text.split(" • ").map(tag => tags[tag]).filter(x => x !== undefined)
+        
+        console.log(forumTags)
+
+       // console.log(resolvedBoard)
         
         // create the thread
         const thread = await resolvedBoard.threads.create({
-            name: `${embed.data.title}`, 
-            message: {embeds: [embed]}, 
-            appliedTags: forumTags
+           name: `${embed.data.title}`, 
+           message: {embeds: [embed]}, 
+           appliedTags: forumTags
         })
 
         // send summary of problem and solution to the thread as comment
-        thread.send(`> Problem Encountered\n\`\`\`${resolvedTicket.problem}\`\`\`\n> Solution\n\`\`\`${resolvedTicket.solution}\`\`\``)
+       thread.send(`> Problem Encountered\n\`\`\`${resolvedTicket.problem}\`\`\`\n> Solution\n\`\`\`${resolvedTicket.solution}\`\`\``)
     })
     .catch(console.error)
 }
