@@ -120,7 +120,7 @@ client.once(Events.ClientReady, c => {
 	console.log(`Ready! Logged in as ${c.user.tag}`);
 
 	// set ticket delete timer
-	setInterval(deleteTicket, 3600000);
+	setInterval(deleteTicket, 1620000);
 });
 
 client.login(process.env.CLIENT_TOKEN);
