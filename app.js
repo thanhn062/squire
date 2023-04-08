@@ -102,6 +102,12 @@ function deleteTicket() {
 					message.delete()
 						.then(console.log(`Deleted message ${message.id}`))
 						.catch(console.error);
+					// send ticket timeout message to student
+					const student_discord_id = message.embeds[0].data.fields[0].value.substring(2,20);
+					const member = await interaction.guild.members.fetch(student_discord_id);
+					const user = await member.user.fetch();
+					const dmChannel = await user.createDM();
+					dmChannel.send({content: '```fix\nUnfortunately, your help ticket has timed out as no guardian was available to address this problem. Please feel free to submit a new help ticket if you need further assistance. Thank you for your understanding.```'});
 				}
 			}
 		})
