@@ -3,6 +3,12 @@
 
 This Discord bot is designed to facilitate the pairing process of students with volunteer tutors. Its purpose is to encourage and enhance the engagement of this process by gamifying it. It achieves this by using a help board that acts as a <i>mission board</i> where tutors can accept <i>quests</i> to help students in need
 
+## Features
+- Create help tickets with `/help`, with customizable inputs
+- Help ticket will automatically delete after 72 hours
+- Guardians can respond to and claim tickets in a private help board
+- Once a ticket is resolved, an archive post is created with the details surrounding the encountered problem and solution
+
 #### Tech Stack
 - Node.js
 - Discord.js
@@ -99,11 +105,6 @@ The bot can be run with as-is to see how student input works and how it correspo
     - Submitting a help request is not visible to other users. Tickets are only viewable by guardians, and further discussion can occur in a private DM or call. 
 
 ---
-## Features
-
-- Create help tickets with `/help`, with customizable inputs
-- Guardians can respond to and claim tickets in a private help board
-- Once a ticket is resolved, an archive post is created with the details surrounding the encountered problem and solution
 
 ## Authors
 
