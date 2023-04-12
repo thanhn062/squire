@@ -7,6 +7,19 @@ const handleClaimButton = require("./interactions/handleClaimButton.js")
 const handleDenyButton = require("./interactions/handleDenyButton.js")
 const handleResolveButton = require("./interactions/handleResolveButton.js")
 const handleUnclaimButton = require("./interactions/handleUnclaimButton.js")
+
+
+const readBanFile = () => {
+
+    const banFile = fs.readFileSync("./banFile.txt" , 'utf-8')
+    const bannedUserIDs = banFile.split(",").reduce((a,v) => ({...a,[v] : v}), {})
+
+    return bannedUserIDs
+}
+
+
+const bannedUserIDs = readBanFile()
+
 // configuration
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
@@ -32,6 +45,7 @@ for (const folder of commandFolders) {
 
 // button listener
 client.on(Events.InteractionCreate, async interaction => {
+
 	if(!interaction.isButton()) return
 
 	if(interaction.customId == "button-claim"){
@@ -55,6 +69,10 @@ client.on(Events.InteractionCreate, async interaction => {
 
 // slash command listener
 client.on(Events.InteractionCreate, async interaction => {
+	if(interaction.user.id in bannedUserIDs){
+		await interaction.reply({content: "You have been banned from Squire, please contact your community manager.", ephemeral: true})
+		return
+	}
 	if (!interaction.isChatInputCommand()) return;
 
 	const command = interaction.client.commands.get(interaction.commandName);
