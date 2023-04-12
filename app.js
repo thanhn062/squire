@@ -10,6 +10,11 @@ const handleUnclaimButton = require("./interactions/handleUnclaimButton.js")
 
 
 const readBanFile = () => {
+	if(!fs.existsSync("./banFile.txt")){
+        console.log("Ban File doesn't exist, creating one")
+        fs.writeFileSync("./banFile.txt","")
+		return {}
+    }
 
     const banFile = fs.readFileSync("./banFile.txt" , 'utf-8')
     const bannedUserIDs = banFile.split(",").reduce((a,v) => ({...a,[v] : v}), {})
