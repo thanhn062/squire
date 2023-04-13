@@ -11,17 +11,13 @@ const execute = async (interaction) => {
     
     const userID = interaction.options.getString('userid')
     console.log(userID)
-
+    fs.appendFileSync("./banFile.txt", userID + ",")
     writeBanFile(userID)
     global.bannedUsers[userID] = userID
     await interaction.reply({content: `Sucessfully banned user <@${userID}>`, ephemeral: true})
 
 }
 
-
-const writeBanFile = (userID) => {
-    fs.appendFileSync("./banFile.txt", userID + ",")
-}
 
 const readBanFile = (banFilePath) => {
     const banFile = fs.readFileSync(banFilePath, 'utf-8')
