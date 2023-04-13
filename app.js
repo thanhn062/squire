@@ -14,7 +14,7 @@ if(!fs.existsSync("./banFile.txt")){
 	fs.writeFileSync("./banFile.txt","")
 }
 
-global.bannedUsers = readBanFile("./banFile.txt")
+
 
 
 // configuration
@@ -133,6 +133,7 @@ function deleteTicket() {
 // Client login
 client.once(Events.ClientReady, c => {
 	console.log(`Ready! Logged in as ${c.user.tag}`);
+	global.bannedUsers = readBanFile("./banFile.txt")
 
 	// set ticket delete timer
 	setInterval(deleteTicket, 1620000);
