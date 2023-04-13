@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
 
 const slashBan = new SlashCommandBuilder()
     .setName('ban')
@@ -7,7 +7,9 @@ const slashBan = new SlashCommandBuilder()
         option.setName('userID')
             .setDescription('The userID you want to ban')
             .setRequired(true)
+
     )
+    .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
 
 
 module.exports = slashBan

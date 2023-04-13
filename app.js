@@ -1,29 +1,21 @@
 // dependencies
 require('dotenv').config();
-const fs = require('node:fs');
-const path = require('node:path');
+const fs = require('fs');
+const path = require('path');
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
 const handleClaimButton = require("./interactions/handleClaimButton.js")
 const handleDenyButton = require("./interactions/handleDenyButton.js")
 const handleResolveButton = require("./interactions/handleResolveButton.js")
 const handleUnclaimButton = require("./interactions/handleUnclaimButton.js")
+const {readBanFile} = require("./commands/core/ban.js")
 
-
-const readBanFile = () => {
-	if(!fs.existsSync("./banFile.txt")){
-        console.log("Ban File doesn't exist, creating one")
-        fs.writeFileSync("./banFile.txt","")
-		return {}
-    }
-
-    const banFile = fs.readFileSync("./banFile.txt" , 'utf-8')
-    const bannedUserIDs = banFile.split(",").reduce((a,v) => ({...a,[v] : v}), {})
-
-    return bannedUserIDs
+if(!fs.existsSync(path)){
+	console.log("Ban File doesn't exist, creating one")
+	fs.writeFileSync(path,"")
 }
 
+const bannedUsers = readBanFile("./banFile.txt")
 
-const bannedUserIDs = readBanFile()
 
 // configuration
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
@@ -74,7 +66,7 @@ client.on(Events.InteractionCreate, async interaction => {
 
 // slash command listener
 client.on(Events.InteractionCreate, async interaction => {
-	if(interaction.user.id in bannedUserIDs){
+	if(interaction.user.id in bannedUsers){
 		await interaction.reply({content: "You have been banned from Squire, please contact your community manager.", ephemeral: true})
 		return
 	}
