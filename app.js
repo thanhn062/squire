@@ -14,7 +14,7 @@ if(!fs.existsSync("./banFile.txt")){
 	fs.writeFileSync("./banFile.txt","")
 }
 
-const bannedUsers = readBanFile("./banFile.txt")
+global.bannedUsers = readBanFile("./banFile.txt")
 
 
 // configuration
@@ -73,6 +73,7 @@ client.on(Events.InteractionCreate, async interaction => {
 	if (!interaction.isChatInputCommand()) return;
 
 	const command = interaction.client.commands.get(interaction.commandName);
+
 
 	if (!command) {
 		console.error(`No command matching ${interaction.commandName} was found.`);

@@ -14,9 +14,8 @@ const execute = async (interaction) => {
     
     const bannedUsers = readBanFile("./banFile.txt").filter(x => x !== userID).join(",")
 
-
     fs.writeFileSync("./banFile.txt", bannedUsers, {flag: 'w+'})
-
+    delete global.bannedUsers[userID]
     await interaction.reply({content: `Sucessfully unbanned user <@${userID}>`, ephemeral: true})
 
 }
