@@ -9,9 +9,9 @@ const handleResolveButton = require("./interactions/handleResolveButton.js")
 const handleUnclaimButton = require("./interactions/handleUnclaimButton.js")
 const {readBanFile} = require("./commands/core/ban.js")
 
-if(!fs.existsSync(path)){
+if(!fs.existsSync("./banFile.txt")){
 	console.log("Ban File doesn't exist, creating one")
-	fs.writeFileSync(path,"")
+	fs.writeFileSync("./banFile.txt","")
 }
 
 const bannedUsers = readBanFile("./banFile.txt")

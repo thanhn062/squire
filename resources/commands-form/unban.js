@@ -1,15 +1,15 @@
 const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
 
-const slashBan = new SlashCommandBuilder()
-    .setName('ban')
-    .setDescription('Ban a user from Squire')
+const slashUnBan = new SlashCommandBuilder()
+    .setName('unban')
+    .setDescription('Unban a user from Squire')
     .addStringOption(option => 
         option.setName('userid')
-            .setDescription('The userID you want to ban')
+            .setDescription('The userID you want to unban')
             .setRequired(true)
 
     )
     .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
 
 
-module.exports = slashBan
+module.exports = slashUnBan

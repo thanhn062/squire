@@ -9,22 +9,22 @@ require('dotenv').config();
 
 const execute = async (interaction) => {
     
-    const userID = interaction.options.getString('userID')
+    const userID = interaction.options.getString('userid')
+    console.log(userID)
 
     writeBanFile(userID)
-    await interaction.reply({content: `Sucessfully banned user ${userID}`, ephemeral: true})
+    await interaction.reply({content: `Sucessfully banned user <@${userID}>`, ephemeral: true})
 
 }
 
 
 const writeBanFile = (userID) => {
-    const path = '../../banFile.txt'
-    fs.appendFileSync(path, userID + ",")
 
+    fs.appendFileSync("./banFile.txt", userID + ",")
 }
 
-const readBanFile = (path) => {
-    const banFile = fs.readFileSync(path, 'utf-8')
+const readBanFile = (banFilePath) => {
+    const banFile = fs.readFileSync(banFilePath, 'utf-8')
     const bannedUserIDs = banFile.split(",").reduce((a,v) => ({...a,[v] : v}), {})
 
     return bannedUserIDs
