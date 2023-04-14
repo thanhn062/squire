@@ -1,6 +1,4 @@
 const {ActionRowBuilder, ModalBuilder, TextInputBuilder, TextInputStyle } = require('discord.js')
-
-const tags = require('../resources/forum_tag_ids.js')
 require('dotenv').config();
 
 
