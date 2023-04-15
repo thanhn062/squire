@@ -3,8 +3,8 @@ const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
 const slashUnBan = new SlashCommandBuilder()
     .setName('unban')
     .setDescription('Unban a user from Squire')
-    .addStringOption(option => 
-        option.setName('userid')
+    .addUserOption(option => 
+        option.setName('user')
             .setDescription('The userID you want to unban')
             .setRequired(true)
 

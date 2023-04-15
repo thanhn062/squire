@@ -9,7 +9,7 @@ require('dotenv').config();
 
 const execute = async (interaction) => {
     
-    const userID = interaction.options.getString('userid')
+    const userID = interaction.options.getUser('user')
     console.log(`Unbanning user ${userID}`)
     
     const bannedUsers = readBanFile("./banFile.txt").filter(x => x !== userID).join(",")
