@@ -16,7 +16,7 @@ const execute = async (interaction) => {
     }
     console.log("banning user " + user.id)
     fs.appendFileSync("./banFile.txt", user.id + ",")
-    global.bannedUsers[userID] = user.id
+    global.bannedUsers[user.id] = user.id
     await interaction.reply({content: `Sucessfully banned user <@${user.id}>`, ephemeral: true})
 
 }
