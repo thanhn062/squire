@@ -95,7 +95,6 @@ function deleteTicket() {
 				const current_date = new Date();
 				const diffInMs = current_date - msg_date; // Difference in milliseconds
 				const diffInHrs = Math.round(diffInMs / 3600000); // Difference in hours
-				console.log(diffInHrs)
 				// delete help ticket more than 3 days old
 				if (diffInHrs >= livespan) {
 					message.delete()
