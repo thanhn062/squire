@@ -9,11 +9,15 @@ require('dotenv').config();
 
 const execute = async (interaction) => {
     
-    const userID = interaction.options.getUser('user')
-    console.log("banning user " + userID)
-    fs.appendFileSync("./banFile.txt", userID + ",")
-    global.bannedUsers[userID] = userID
-    await interaction.reply({content: `Sucessfully banned user <@${userID}>`, ephemeral: true})
+    const user = interaction.options.getUser('user')
+    if(user.bot){
+        await interaction.reply({content: "You cannot select a bot", ephemeral: true})
+        return
+    }
+    console.log("banning user " + user.id)
+    fs.appendFileSync("./banFile.txt", user.id + ",")
+    global.bannedUsers[userID] = user.id
+    await interaction.reply({content: `Sucessfully banned user <@${user.id}>`, ephemeral: true})
 
 }
 

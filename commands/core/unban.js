@@ -9,14 +9,18 @@ require('dotenv').config();
 
 const execute = async (interaction) => {
     
-    const userID = interaction.options.getUser('user')
-    console.log(`Unbanning user ${userID}`)
+    const user = interaction.options.getUser('user')
+    if(user.bot){
+        await interaction.reply({content: "You cannot select a bot", ephemeral: true})
+        return
+    }
+    console.log(`Unbanning user ${user.id}`)
     
-    const bannedUsers = readBanFile("./banFile.txt").filter(x => x !== userID).join(",")
+    const bannedUsers = readBanFile("./banFile.txt").filter(x => x !== user.id).join(",")
 
     fs.writeFileSync("./banFile.txt", bannedUsers, {flag: 'w+'})
-    delete global.bannedUsers[userID]
-    await interaction.reply({content: `Sucessfully unbanned user <@${userID}>`, ephemeral: true})
+    delete global.bannedUsers[user.id]
+    await interaction.reply({content: `Sucessfully unbanned user <@${user.id}>`, ephemeral: true})
 
 }
 
