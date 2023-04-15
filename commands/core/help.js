@@ -12,7 +12,6 @@ const execute = async (interaction) => {
         attachment: interaction.options.getAttachment('image'),
         userID: interaction.user.id,
     }
-    console.log(interaction.client)
     const channel = interaction.client.channels.cache.get(process.env.helpBoardChannelId);
     let ticket = ticketEmbedBuilder(embedProps)
     channel.send({embeds: [ticket.embed], components: [ticket.buttons]})
