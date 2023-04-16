@@ -1,5 +1,5 @@
 const {ActionRowBuilder, ModalBuilder, TextInputBuilder, TextInputStyle } = require('discord.js')
-
+const log = require('../resources/log/log.js');
 const handleDenyButton = async (interaction) => {
 
     const student_discord_id = interaction.message.embeds[0].data.fields[0].value.replaceAll("<@","").replaceAll(">","")
@@ -33,6 +33,16 @@ const handleDenyButton = async (interaction) => {
         const dmChannel = await user.createDM();
         const messageContent = '```fix\nYour help request was denied.```__**Reason:**__\n> ' + reason;
         dmChannel.send({ content: messageContent });
+
+        // log
+        const username = await interaction.user.username + "#" + interaction.user.discriminator
+        const nickname = await interaction.member.nickname
+        const name = (nickname == null) ? username : nickname
+
+        const student_username = user.username + "#" + user.discriminator
+        const student_nickname = member.nickname
+        const student_name = (student_nickname == null) ? student_username : student_nickname
+        log(`${name} (${guardian_discord_id}) denied help ticket from ${student_name} (${student_discord_id}) - reason: ${reason}`)
     })
     .catch(console.error);
 }
