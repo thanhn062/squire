@@ -24,35 +24,36 @@ const handleClaimButton = async (interaction) => {
             msgURL: interaction.message.id,
             guardianID: guardian_discord_id
         }
+
         // build the embeds
         let guardian_ticket = dmEmbedBuilder(embedProps)
+
         // sends the embeds to guardian by DM
-        const member = await interaction.guild.members.fetch(guardian_discord_id);
-        const user = await member.user.fetch();
-        const dmChannel = await user.createDM();
+        const guardian_member = await interaction.guild.members.cache.get(guardian_discord_id);
+        const guardian_user = await guardian_member.user;
+        const guardian_DM = await guardian_user.createDM();
 
         const claimedEmbed = claimedTicketEmbedBuilder({...embedProps, guardianID: guardian_discord_id})
-
-
-        dmChannel.send({content: '```Thank you for helping out our student!\nPlease reach out to them via DM, then come back here to update the status of the ticket once the student has been helped.```', embeds: [guardian_ticket.embed], components: [guardian_ticket.buttons]});
+        guardian_DM.send({content: '```Thank you for helping out our student!\nPlease reach out to them via DM, then come back here to update the status of the ticket once the student has been helped.```', embeds: [guardian_ticket.embed], components: [guardian_ticket.buttons]});
 
         // DM Student
-        const member2 = await interaction.guild.members.fetch(student_discord_id);
-        const user2 = await member2.user.fetch();
-        const dmChannel2 = await user2.createDM();
-        dmChannel2.send({ content: '__**Make sure to check your DMs and Message Requests!**__\nYour ticket has been claimed and the guardian will be reaching out to you shortly.', embeds: [claimedEmbed.embed]});
+        const student_member = await interaction.guild.members.fetch(student_discord_id);
+        const student_user = await student_member.user;
+        const student_DM = await student_user.createDM();
+        student_DM.send({ content: '__**Make sure to check your DMs and Message Requests!**__\nYour ticket has been claimed and the guardian will be reaching out to you shortly.', embeds: [claimedEmbed.embed]});
         await interaction.update({})
         interaction.message.edit({embeds: [claimedEmbed.embed], components: [claimedEmbed.buttons]})
     
         // log
-        const username = await interaction.user.username + "#" + interaction.user.discriminator
-        const nickname = await interaction.member.nickname
-        const name = (nickname == null) ? username : nickname
+        const guardian_username = await interaction.user.username + "#" + interaction.user.discriminator
+        const guardian_nickname = await interaction.member.nickname
+        const guardian_name = (guardian_nickname == null) ? guardian_username : guardian_nickname
 
-        const student_username = user2.username + "#" + user2.discriminator
-        const student_nickname = member2.nickname
+        const student_username = student_user.username + "#" + student_user.discriminator
+        const student_nickname = student_member.nickname
         const student_name = (student_nickname == null) ? student_username : student_nickname
-        log(`${name} (${guardian_discord_id}) claimed help ticket from ${student_name} (${student_discord_id})`)
+        
+        log(`${guardian_name} (${guardian_discord_id}) claimed help ticket from ${student_name} (${student_discord_id})`)
     }
 }
 
