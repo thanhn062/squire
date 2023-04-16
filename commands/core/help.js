@@ -1,4 +1,5 @@
 const slashHelp = require('../../resources/commands-form/help.js')
+const log = require('../../resources/log/log.js');
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 require('dotenv').config();
 
@@ -16,6 +17,12 @@ const execute = async (interaction) => {
     let ticket = ticketEmbedBuilder(embedProps)
     channel.send({embeds: [ticket.embed], components: [ticket.buttons]})
     await interaction.reply({ content: `Your request has been sent to the guardians!`, ephemeral: true});
+
+    // get user name/nickname for logging
+    const username = await interaction.user.username + "#" + interaction.user.discriminator
+    const nickname = await interaction.member.nickname
+    const name = (nickname == null) ? username : nickname;
+    log(`${name}(${userID}) sent a help ticket`)
 }
 
 function ticketEmbedBuilder(props) {
