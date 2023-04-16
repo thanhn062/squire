@@ -22,7 +22,7 @@ const execute = async (interaction) => {
     const username = await interaction.user.username + "#" + interaction.user.discriminator
     const nickname = await interaction.member.nickname
     const name = (nickname == null) ? username : nickname;
-    log(`${name}(${userID}) sent a help ticket`)
+    log(`${name} (${interaction.user.id}) sent a help ticket`)
 }
 
 function ticketEmbedBuilder(props) {
