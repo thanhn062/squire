@@ -3,9 +3,9 @@
 
 This Discord bot is designed to facilitate the pairing process of students with volunteer tutors. Its purpose is to encourage and enhance the engagement of this process by gamifying it. It achieves this by using a help board that acts as a <i>mission board</i> where tutors can accept <i>quests</i> to help students in need
 
-## Features
+### Features
 - Create help tickets with `/help`, with customizable inputs
-- Help ticket will automatically delete after 72 hours
+- Automatically delete help ticket after 72 hours
 - Guardians can respond to and claim tickets in a private help board
 - Once a ticket is resolved, an archive post is created with the details surrounding the encountered problem and solution
 
@@ -31,8 +31,6 @@ This Discord bot is designed to facilitate the pairing process of students with 
 - Create Public Threads
 - Create Private Threads
 - Send Messages in Threads
-- Manage Messages
-- Manage Threads
 - Read Message History
 - Use Slash Command
 ---
@@ -63,8 +61,7 @@ To run this project, you will need to add the following environment variables to
 |commands/|This folder contains all of the logics for the slash commands|
 |interactions/|This folder contains all of the button's function|
 |resources/commands-form/|This folder contains all the forms for slash command|
-|forum_tag_ids.js|This file contains all the tags name and tags id for the forum-channel|
-|deploy-commands.js|Register the slash command options to Discord|
+|deploy-commands.js|Register the slash commands to Discord|
 |app.js|Main file where the bot login, load all the commands, and event listeners|
 
 #### Channel Note
