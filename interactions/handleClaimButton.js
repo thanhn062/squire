@@ -1,18 +1,15 @@
 const {ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } = require('discord.js')
-
+const log = require('../resources/log/log.js');
 const handleClaimButton = async (interaction) => {
 
     const student_discord_id = interaction.message.embeds[0].data.fields[0].value.replaceAll("<@","").replaceAll(">","")
 	const guardian_discord_id = interaction.user.id
 
     if (student_discord_id.toString() === guardian_discord_id.toString()) {
-        console.log("Guardian tried to claim own ticket!")
         await interaction.reply({ content: "You cannot claim your own ticket.", ephemeral: true});
         return;
     }
     else {
-        console.log("Ticket claimed! Sending messages to student and guardian")
-
         // DM Guardian
         // get message details and build the embeds prop
         const isoString = interaction.message.embeds[0].data.timestamp;
@@ -45,8 +42,17 @@ const handleClaimButton = async (interaction) => {
         const dmChannel2 = await user2.createDM();
         dmChannel2.send({ content: '__**Make sure to check your DMs and Message Requests!**__\nYour ticket has been claimed and the guardian will be reaching out to you shortly.', embeds: [claimedEmbed.embed]});
         await interaction.update({})
-        // await interaction.reply({content: "Thanks for claiming this ticket! Please check your DM's for further instruction!", ephemeral: true})
         interaction.message.edit({embeds: [claimedEmbed.embed], components: [claimedEmbed.buttons]})
+    
+        // log
+        const username = await interaction.user.username + "#" + interaction.user.discriminator
+        const nickname = await interaction.member.nickname
+        const name = (nickname == null) ? username : nickname
+
+        const student_username = user2.username + "#" + user2.discriminator
+        const student_nickname = member2.nickname
+        const student_name = (student_nickname == null) ? student_username : student_nickname
+        log(`${name} (${guardian_discord_id}) claimed help ticket from ${student_name} (${student_discord_id})`)
     }
 }
 
