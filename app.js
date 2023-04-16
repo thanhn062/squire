@@ -7,6 +7,16 @@ const handleClaimButton = require("./interactions/handleClaimButton.js")
 const handleDenyButton = require("./interactions/handleDenyButton.js")
 const handleResolveButton = require("./interactions/handleResolveButton.js")
 const handleUnclaimButton = require("./interactions/handleUnclaimButton.js")
+const {readBanFile} = require("./commands/core/ban.js")
+
+if(!fs.existsSync("./banFile.txt")){
+	console.log("Ban File doesn't exist, creating one")
+	fs.writeFileSync("./banFile.txt","")
+}
+
+
+
+
 // configuration
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
@@ -32,6 +42,7 @@ for (const folder of commandFolders) {
 
 // button listener
 client.on(Events.InteractionCreate, async interaction => {
+
 	if(!interaction.isButton()) return
 
 	if(interaction.customId == "button-claim"){
@@ -55,9 +66,14 @@ client.on(Events.InteractionCreate, async interaction => {
 
 // slash command listener
 client.on(Events.InteractionCreate, async interaction => {
+	if(interaction.user.id in bannedUsers){
+		await interaction.reply({content: "You have been banned from Squire, please contact your community manager.", ephemeral: true})
+		return
+	}
 	if (!interaction.isChatInputCommand()) return;
 
 	const command = interaction.client.commands.get(interaction.commandName);
+
 
 	if (!command) {
 		console.error(`No command matching ${interaction.commandName} was found.`);
@@ -116,6 +132,7 @@ function deleteTicket() {
 // Client login
 client.once(Events.ClientReady, c => {
 	console.log(`Ready! Logged in as ${c.user.tag}`);
+	global.bannedUsers = readBanFile("./banFile.txt")
 
 	// set ticket delete timer
 	setInterval(deleteTicket, 1620000);
