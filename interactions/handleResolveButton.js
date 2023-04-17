@@ -1,16 +1,16 @@
 const {ActionRowBuilder, ModalBuilder, TextInputBuilder, TextInputStyle } = require('discord.js')
 require('dotenv').config();
-
+const log = require('../resources/log/log.js');
 
 // when a user clicks resolve, a modal pops prompting the user to enter what the problem and solution was
 // then, the job posting is deleted from the job board, and a thread is created on the forum where the problem and solution is able to be viewed
-const handleResolveButton = async (interaction) => {
+const handleResolveButton = async (interaction, client) => {
 
     const modal = resolveModalBuilder()
 
     await interaction.showModal(modal);
 
-    resolveModalSubmit(interaction)
+    resolveModalSubmit(interaction, client)
     
 }
 
@@ -39,7 +39,7 @@ const resolveModalBuilder = () => {
     return modal
 }
 
-const resolveModalSubmit = async interaction => {
+const resolveModalSubmit = async (interaction, client) => {
     const messageID = interaction.customId.split("-")[2]
     const channel = interaction.client.channels.cache.get(process.env.helpBoardChannelId);
     const embed = interaction.message.embeds[0]
@@ -77,7 +77,28 @@ const resolveModalSubmit = async interaction => {
         })
 
         // send summary of problem and solution to the thread as comment
-       thread.send(`> Problem Encountered\n\`\`\`${resolvedTicket.problem}\`\`\`\n> Solution\n\`\`\`${resolvedTicket.solution}\`\`\``)
+        thread.send(`> Problem Encountered\n\`\`\`${resolvedTicket.problem}\`\`\`\n> Solution\n\`\`\`${resolvedTicket.solution}\`\`\``)
+
+        // get discord name of student and guardian for logging
+        const student_discord_id = interaction.message.embeds[0].data.fields[0].value.replaceAll("<@","").replaceAll(">","")
+        const guardian_discord_id = interaction.user.id
+        const guild = client.guilds.cache.get(process.env.guildId); // Get the guild object
+        
+        // student
+        const student_member = guild.members.cache.get(student_discord_id);
+        const student_user = client.users.cache.get(student_discord_id);
+        const student_username = student_user.username + "#" + student_user.discriminator
+        const student_nickname = student_member.nickname
+        const student_name = (student_nickname == null) ? student_username : student_nickname
+
+        // guardian
+        const guardian_member = guild.members.cache.get(guardian_discord_id);
+        const guardian_user = client.users.cache.get(guardian_discord_id);
+        const guardian_username = guardian_user.username + "#" + guardian_user.discriminator
+        const guardian_nickname = guardian_member.nickname
+        const guardian_name = (guardian_nickname == null) ? guardian_username : student_nickname
+
+        log(`${guardian_name} (${guardian_discord_id}) resolved help ticket from ${student_name} (${student_discord_id}) - ${interaction.message.embeds[0].data.title}`)
     })
     .catch(console.error)
 }

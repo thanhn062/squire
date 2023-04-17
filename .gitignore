@@ -1,5 +1,5 @@
 node_modules/
 package-lock.json
 .env
-log/log.txt
+resources/log/log.txt
 banFile.txt

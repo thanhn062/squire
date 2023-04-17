@@ -14,9 +14,6 @@ if(!fs.existsSync("./banFile.txt")){
 	fs.writeFileSync("./banFile.txt","")
 }
 
-
-
-
 // configuration
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
@@ -54,7 +51,7 @@ client.on(Events.InteractionCreate, async interaction => {
 		return
 	}
 	if(interaction.customId.startsWith("button-resolve")){
-		handleResolveButton(interaction)
+		handleResolveButton(interaction, client)
 		return
 	}
 	if(interaction.customId.startsWith("button-unclaim")){

@@ -4,18 +4,17 @@ const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, ModalBuilder
 require('dotenv').config();
 
 const execute = async (interaction) => {
-
     const username = await interaction.user.username + "#" + interaction.user.discriminator
     const nickname = await interaction.member.nickname
     const name = (nickname == null) ? username : nickname;
     log(`${name} (${interaction.user.id}) sent a help ticket`)
+
 
     const modal = helpModalBuilder()
 
     await interaction.showModal(modal)
 
     helpModalSubmit(interaction)
-
 }
 
 function ticketEmbedBuilder(props) {
