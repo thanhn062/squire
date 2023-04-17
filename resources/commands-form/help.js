@@ -53,11 +53,6 @@ const slashHelp = new SlashCommandBuilder()
                 .setDescription('Project\'s name (e.g quest 01, my_mastermind, ...)')
                 .setRequired(true)
         )
-        .addStringOption(option => 
-            option.setName('description')
-                .setDescription('Describe your roadblock in detail and what you have tried')
-                .setRequired(true)
-        )
         .addAttachmentOption(option => 
             option.setName('image')
                 .setDescription("A picture of your code (optional)")
