@@ -1,8 +1,14 @@
 const slashHelp = require('../../resources/commands-form/help.js')
+const log = require('../../resources/log/log.js');
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, ModalBuilder, TextInputBuilder, TextInputStyle} = require('discord.js');
 require('dotenv').config();
 
 const execute = async (interaction) => {
+
+    const username = await interaction.user.username + "#" + interaction.user.discriminator
+    const nickname = await interaction.member.nickname
+    const name = (nickname == null) ? username : nickname;
+    log(`${name} (${interaction.user.id}) sent a help ticket`)
 
     const modal = helpModalBuilder()
 
@@ -10,7 +16,6 @@ const execute = async (interaction) => {
 
     helpModalSubmit(interaction)
 
-    
 }
 
 function ticketEmbedBuilder(props) {
