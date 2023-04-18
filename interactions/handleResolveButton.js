@@ -66,8 +66,10 @@ const resolveModalSubmit = async (interaction, client) => {
             // Find the tag with the matching name
             const tag = allTags.find(t => t.name === tagName);
             // Return the tag ID, or null if the tag isn't found
-            return tag ? tag.id : null
-        });
+            if(tag){
+                return tag.id
+            }
+        }).filter(x => x !== undefined )
 
         // create the thread
         const thread = await resolvedBoard.threads.create({
