@@ -2,9 +2,16 @@ const fs = require('fs');
 const path = require('path');
 
 function log(message) {
-  const logFile = path.join(__dirname, 'log.txt');
   const date = new Date();
+  // get today date in format YYYY-MM-DD
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  const today = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
   
+  // add today date to log file name
+  const logFile = path.join(__dirname, 'log_' + today + '.txt');
+
   // extract the hour and minutes from the date object
   const hour = date.getHours();
   const minutes = date.getMinutes();
