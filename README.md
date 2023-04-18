@@ -45,7 +45,7 @@ To run this project, you will need to add the following environment variables to
 |helpBoardChannelId|The channel ID where you want the help requests to go|
 |resolvedTicketsChannelId|The ID of the forum-channel where you want the resolved tickets to go. <br/><b>*Must be a discord Forum channel</b>.|
 ---
-### Flowchart
+### Action Flowchart
 ##### Student
 ![new student flow dark](https://user-images.githubusercontent.com/12405800/232888168-ba7b1a9d-0873-43c9-a058-0e5f813052d5.png)
 ##### Guardian
@@ -55,7 +55,6 @@ To run this project, you will need to add the following environment variables to
 
 ---
 #### Folder Structure
-
 
 |Folder/File|Purpose|
 |---|---|
@@ -114,4 +113,7 @@ The bot can be run with as-is to see how student input works and how it correspo
 
 *Connor*:    
     `Discord.js is a powerful library that was intuitive to use. The main challenge in this project was working around the requirements set by the Discord API. Every interaction in the discord app needs a corresponding reply, and there was a roadblock surrounding replying to interactions that have already been replied to. We had a lot of discussion about how we could address real problems that students face, and I think we created something useful as we tried to empathize with these students. If I were to do this again, I would do it in Java to get more practice with the language and OOP. Overall I had a lot of fun building and collaborating with Thanh and I hope someone gets some use from Squire.`
+    
+*Thanh*: 
 
+   I learned much more than just coding from working on this project. One day, my friend Connor and I sat down to analyze the Discord community of our bootcamp. We brainstormed and identified the problems that students were facing, and then we worked together to develop a solution that we believed would benefit all students in the long run. We defined the solution step-by-step and used [Figjam](https://www.figma.com/figjam/), an online collaboration tool, to visually represent the implementation process. After that, we divided the tasks and discussed with each other to ensure that we implemented the solution using the best coding practices.
