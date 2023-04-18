@@ -69,7 +69,7 @@ const resolveModalSubmit = async (interaction, client) => {
             if(tag){
                 return tag.id
             }
-        });
+        }).filter(x => x !== undefined )
 
         // create the thread
         const thread = await resolvedBoard.threads.create({
