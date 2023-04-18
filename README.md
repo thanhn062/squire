@@ -8,6 +8,7 @@ This Discord bot is designed to facilitate the pairing process of students with 
 - Automatically delete help ticket after 72 hours
 - Guardians can respond to and claim tickets in a private help board
 - Once a ticket is resolved, an archive post is created with the details surrounding the encountered problem and solution
+- User action log
 
 #### Tech Stack
 - Node.js
@@ -46,7 +47,7 @@ To run this project, you will need to add the following environment variables to
 ---
 ### Flowchart
 ##### Student
-![student flow dark](https://user-images.githubusercontent.com/12405800/229955215-e8d261d6-e61a-4a69-8c96-4f4fc40554d8.png)
+![new student flow dark](https://user-images.githubusercontent.com/12405800/232888168-ba7b1a9d-0873-43c9-a058-0e5f813052d5.png)
 ##### Guardian
 ![guardian flow dark](https://user-images.githubusercontent.com/12405800/230002998-5f2feaa2-012a-4c3c-85ea-7159ad98f3f9.png)
 
