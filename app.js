@@ -8,6 +8,7 @@ const handleDenyButton = require("./interactions/handleDenyButton.js")
 const handleResolveButton = require("./interactions/handleResolveButton.js")
 const handleUnclaimButton = require("./interactions/handleUnclaimButton.js")
 const {readBanFile} = require("./commands/core/ban.js")
+const log = require('./resources/log/log.js');
 
 if(!fs.existsSync("./banFile.txt")){
 	console.log("Ban File doesn't exist, creating one")
@@ -94,11 +95,10 @@ function deleteTicket() {
 	if (!channel) return;
 
 	// Delete all help tickets older than 3 days
-	const day = 3;
+	const day = 0;
 	const livespan = day * 24;
 
 	// scan the last 100 messages in help board
-	// assuming there will never be more than 100 tickets in the help board
 	channel.messages.fetch({ limit: 100 }).then(messages => {
 		messages.forEach(async message => {
 			// only check for message with embeds with timestamp
@@ -113,13 +113,20 @@ function deleteTicket() {
 					message.delete()
 						.then(console.log(`Deleted message ${message.id}`))
 						.catch(console.error);
+
 					// send ticket timeout message to student
 					const student_discord_id = message.embeds[0].data.fields[0].value.substring(2,20);
-					const guild = await client.guilds.fetch(process.env.guildId);
+					const guild = client.guilds.cache.get(process.env.guildId);
 					const member = await guild.members.fetch(student_discord_id);
-					const user = await member.user.fetch();
+					const user = member.user;
 					const dmChannel = await user.createDM();
 					dmChannel.send({content: '```fix\nUnfortunately, your help ticket for "' + message.embeds[0].data.title + '" has timed out as no guardian was available to address this problem. Please feel free to submit a new help ticket if you need further assistance. Thank you for your understanding.```'});
+					
+					// log
+					const student_username = user.username + "#" + user.discriminator
+					const student_nickname = member.nickname
+					const student_name = (student_nickname == null) ? student_username : student_nickname
+					log(`${student_name} (${student_discord_id}) help ticket timed out - ${message.embeds[0].data.title}`)
 				}
 			}
 		})
