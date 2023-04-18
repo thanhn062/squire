@@ -55,7 +55,7 @@ client.on(Events.InteractionCreate, async interaction => {
 		return
 	}
 	if(interaction.customId.startsWith("button-unclaim")){
-		handleUnclaimButton(interaction)
+		handleUnclaimButton(interaction, client)
 		return
 	}
 })
