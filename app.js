@@ -119,7 +119,7 @@ function deleteTicket() {
 					const member = await guild.members.fetch(student_discord_id);
 					const user = await member.user.fetch();
 					const dmChannel = await user.createDM();
-					dmChannel.send({content: '```fix\nUnfortunately, your help ticket has timed out as no guardian was available to address this problem. Please feel free to submit a new help ticket if you need further assistance. Thank you for your understanding.```'});
+					dmChannel.send({content: '```fix\nUnfortunately, your help ticket for "' + message.embeds[0].data.title + '" has timed out as no guardian was available to address this problem. Please feel free to submit a new help ticket if you need further assistance. Thank you for your understanding.```'});
 				}
 			}
 		})
