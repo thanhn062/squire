@@ -1,5 +1,7 @@
+.env
 node_modules/
 package-lock.json
-.env
 resources/log/log_*
 banFile.txt
+resources/commands-form/test_*
+commands/core/test_*
