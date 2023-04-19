@@ -5,18 +5,23 @@ const log = require('../resources/log/log.js');
 // when a user clicks resolve, a modal pops prompting the user to enter what the problem and solution was
 // then, the job posting is deleted from the job board, and a thread is created on the forum where the problem and solution is able to be viewed
 const handleResolveButton = async (interaction, client) => {
+    // Generate unique identifier for the modal
+    const identifier = Math.random().toString(36).substring(2, 8);
 
-    const modal = resolveModalBuilder()
+    // Build modal with unique identifier
+    const modal = resolveModalBuilder(identifier)
 
+    // Show modal to user
     await interaction.showModal(modal);
 
-    resolveModalSubmit(interaction, client)
+    // Process modal submit
+    resolveModalSubmit(interaction, client, identifier)
     
 }
 
-const resolveModalBuilder = () => {
+const resolveModalBuilder = (identifier) => {
     const modal = new ModalBuilder()
-        .setCustomId('resolve-modal')
+        .setCustomId(identifier)
         .setTitle('Ticket Resolution');
 
     const problemInput = new TextInputBuilder()
@@ -39,12 +44,12 @@ const resolveModalBuilder = () => {
     return modal
 }
 
-const resolveModalSubmit = async (interaction, client) => {
+const resolveModalSubmit = async (interaction, client, identifier) => {
     const messageID = interaction.customId.split("-")[2]
     const channel = interaction.client.channels.cache.get(process.env.helpBoardChannelId);
     const embed = interaction.message.embeds[0]
     const resolvedTicket = {}
-    const filter = interaction => interaction.customId === "resolve-modal"
+    const filter = interaction => interaction.customId === identifier
 
     interaction.awaitModalSubmit({filter, time:300_000})
     .then(async interaction => {
