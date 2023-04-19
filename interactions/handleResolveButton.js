@@ -98,7 +98,7 @@ const resolveModalSubmit = async (interaction, client) => {
         const guardian_user = client.users.cache.get(guardian_discord_id);
         const guardian_username = guardian_user.username + "#" + guardian_user.discriminator
         const guardian_nickname = guardian_member.nickname
-        const guardian_name = (guardian_nickname == null) ? guardian_username : student_nickname
+        const guardian_name = (guardian_nickname == null) ? guardian_username : guardian_nickname
 
         log(`${guardian_name} (${guardian_discord_id}) resolved help ticket from ${student_name} (${student_discord_id}) - ${interaction.message.embeds[0].data.title}`)
     })
