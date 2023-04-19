@@ -139,7 +139,7 @@ client.once(Events.ClientReady, c => {
 	global.bannedUsers = readBanFile("./banFile.txt")
 
 	// set ticket delete timer
-	setInterval(deleteTicket, 1620000);
+	setInterval(deleteTicket, 3600000);
 });
 
 client.login(process.env.CLIENT_TOKEN);
