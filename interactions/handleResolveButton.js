@@ -66,16 +66,8 @@ const resolveModalSubmit = async (interaction, client, identifier) => {
         const resolvedBoard = interaction.client.channels.cache.get(process.env.resolvedTicketsChannelId)
         
         // parse ticket's footer and convert to forum tags
-        const allTags = await resolvedBoard.availableTags;
-        const forumTags = embed.footer.text.split(" • ").map(tagName => {
-            // Find the tag with the matching name
-            const tag = allTags.find(t => t.name === tagName);
-            // Return the tag ID, or null if the tag isn't found
-            if(tag){
-                return tag.id
-            }
-        }).filter(x => x !== undefined )
-
+        let allTags = await resolvedBoard.availableTags.reduce((a,v) => ({...a,[v.name] : v.id}), {})
+        const forumTags = embed.footer.text.split(" • ").map(tagName => allTags[tagName]).filter(x => x !== undefined)
         // create the thread
         const thread = await resolvedBoard.threads.create({
            name: `${embed.data.title}`, 
