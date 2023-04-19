@@ -4,14 +4,18 @@ const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, ModalBuilder
 require('dotenv').config();
 
 const execute = async (interaction) => {
-    const modal = helpModalBuilder()
+
+    const identifier = Math.random().toString(36).substring(2, 8);
+
+
+    const modal = helpModalBuilder(identifier)
 
     await interaction.showModal(modal)
 
-    helpModalSubmit(interaction)
+    helpModalSubmit(interaction, identifier)
 }
 
-const helpModalSubmit = async interaction => {
+const helpModalSubmit = async (interaction, identifier) => {
 
     let embedProps = {
         season: interaction.options.getString('season'),
@@ -24,7 +28,7 @@ const helpModalSubmit = async interaction => {
 
     const channel = interaction.client.channels.cache.get(process.env.helpBoardChannelId);
 
-    const filter = interaction => interaction.customId === "help-modal"
+    const filter = interaction => interaction.customId === identifier
 
     interaction.awaitModalSubmit({filter, time:300_000})
     .then(async interaction => {
@@ -45,9 +49,9 @@ const helpModalSubmit = async interaction => {
 }
 
 
-const helpModalBuilder = () => {
+const helpModalBuilder = (identifier) => {
     const modal = new ModalBuilder()
-        .setCustomId('help-modal')
+        .setCustomId(identifier)
         .setTitle('Problem Description')
 
     const descriptionInput = new TextInputBuilder()
