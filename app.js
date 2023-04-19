@@ -95,7 +95,7 @@ function deleteTicket() {
 	if (!channel) return;
 
 	// Delete all help tickets older than 3 days
-	const day = 0;
+	const day = 3;
 	const livespan = day * 24;
 
 	// scan the last 100 messages in help board
