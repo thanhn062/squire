@@ -60,6 +60,10 @@ const handleClaimButton = async (interaction) => {
 function claimedTicketEmbedBuilder(props) {
     let { title, timestamp, footer, userID, description, attachment, guardianID } = props
 
+    let student_id = userID.replaceAll("<@","").replaceAll(">","")
+
+    console.log(student_id)
+
     let embed = new EmbedBuilder()
     .setColor(0xE9C46A)
     .setAuthor({name: "Help Request"})
@@ -71,7 +75,7 @@ function claimedTicketEmbedBuilder(props) {
 	)
     .setThumbnail(attachment)
 	.setTimestamp(timestamp)
-	.setFooter({ text: `${footer}`});
+	.setFooter({ text: `${footer} ID: ${student_id}`});
 
     let buttons = new ActionRowBuilder()
     .addComponents(
@@ -89,6 +93,8 @@ function claimedTicketEmbedBuilder(props) {
 function dmEmbedBuilder(props) {
     let {title, timestamp, footer, userID, description, attachment, msgURL, guardianID } = props
 
+    let student_id = userID.replaceAll("<@","").replaceAll(">","")
+
     let embed = new EmbedBuilder()
     .setColor(0xE9C46A)
     .setAuthor({name: "Help Request"})
@@ -101,7 +107,7 @@ function dmEmbedBuilder(props) {
 	)
     .setThumbnail(attachment)
 	.setTimestamp(timestamp)
-	.setFooter({ text: `${footer}`});
+	.setFooter({ text: `${footer} • ID: ${student_id}`});
 
     let buttons = new ActionRowBuilder()
         .addComponents(
