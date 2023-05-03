@@ -22,7 +22,8 @@ const handleClaimButton = async (interaction) => {
             description: interaction.message.embeds[0].data.description,
             attachment: interaction.message.embeds[0].data.thumbnail.url,
             msgURL: interaction.message.id,
-            guardianID: guardian_discord_id
+            guardianID: guardian_discord_id,
+            studentID: student_discord_id,
         }
 
         // build the embeds
@@ -58,11 +59,8 @@ const handleClaimButton = async (interaction) => {
 }
 
 function claimedTicketEmbedBuilder(props) {
-    let { title, timestamp, footer, userID, description, attachment, guardianID } = props
+    let { title, timestamp, footer, userID, description, attachment, guardianID, studentID } = props
 
-    let student_id = userID.replaceAll("<@","").replaceAll(">","")
-
-    console.log(student_id)
 
     let embed = new EmbedBuilder()
     .setColor(0xE9C46A)
@@ -75,7 +73,7 @@ function claimedTicketEmbedBuilder(props) {
 	)
     .setThumbnail(attachment)
 	.setTimestamp(timestamp)
-	.setFooter({ text: `${footer} ID: ${student_id}`});
+	.setFooter({ text: `${footer} ID: ${studentID}`});
 
     let buttons = new ActionRowBuilder()
     .addComponents(
@@ -91,9 +89,8 @@ function claimedTicketEmbedBuilder(props) {
 }
 
 function dmEmbedBuilder(props) {
-    let {title, timestamp, footer, userID, description, attachment, msgURL, guardianID } = props
+    let {title, timestamp, footer, userID, description, attachment, msgURL, guardianID, studentID } = props
 
-    let student_id = userID.replaceAll("<@","").replaceAll(">","")
 
     let embed = new EmbedBuilder()
     .setColor(0xE9C46A)
@@ -107,7 +104,7 @@ function dmEmbedBuilder(props) {
 	)
     .setThumbnail(attachment)
 	.setTimestamp(timestamp)
-	.setFooter({ text: `${footer} • ID: ${student_id}`});
+	.setFooter({ text: `${footer} • ID: ${studentID}`});
 
     let buttons = new ActionRowBuilder()
         .addComponents(

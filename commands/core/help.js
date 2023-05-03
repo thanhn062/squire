@@ -83,7 +83,7 @@ function ticketEmbedBuilder(props) {
 	)
     .setThumbnail(url)
 	.setTimestamp()
-	.setFooter({ text: `${season} • ${subject} • ${language} • ${userID}`  });
+	.setFooter({ text: `${season} • ${subject} • ${language} • ID: ${userID}`  });
 
     let buttons = new ActionRowBuilder()
         .addComponents(
