@@ -549,7 +549,7 @@
                     </mxCell>
                 </UserObject>
                 <UserObject label="check for banned user and deny access" link="vscode://file/C:\Code\squire\squire\app.js:67" id="houMFBX2dxddzsTBLSi1-6">
-                    <mxCell style="whiteSpace=wrap;html=1;rounded=0;fillColor=#e3c800;fontColor=#000000;strokeColor=#B09500;" vertex="1" parent="1">
+                    <mxCell style="whiteSpace=wrap;html=1;rounded=0;fillColor=#f0a30a;fontColor=#000000;strokeColor=#BD7000;" vertex="1" parent="1">
                         <mxGeometry x="725" y="120" width="120" height="60" as="geometry"/>
                     </mxCell>
                 </UserObject>
